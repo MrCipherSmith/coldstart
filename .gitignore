@@ -5,5 +5,6 @@ out
 *.tsbuildinfo
 next-env.d.ts
 
-# prototype-only: lets the static preview resolve /shots
-shots
+# prototype-only: the symlink in the repository root that lets the static
+# preview resolve /shots. Anchored, or it would also swallow public/shots.
+/shots
