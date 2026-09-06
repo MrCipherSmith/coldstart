@@ -192,8 +192,8 @@ export const LAYERS: Layer[] = [
         height: 853,
         alt: "The keryx dashboard: a health score, attention signals and the enabled modules",
         caption: {
-          en: "<b>keryx dash</b> · the read-only control surface: health 93, 649 graph files, 39 wiki pages, 8 memory entries, 9 modules",
-          ru: "<b>keryx dash</b> · read-only панель управления: здоровье 93, 649 файлов графа, 39 страниц вики, 8 записей памяти, 9 модулей",
+          en: "<b>keryx dash</b> · the read-only control surface, re-shot on {{dash.shotOn}}: health {{dash.health}}, {{dash.findings}} findings, {{dash.graphFiles}} graph files, {{dash.wikiPages}} wiki pages, {{dash.memoryEntries}} memory entries, {{dash.modules}} modules",
+          ru: "<b>keryx dash</b> · read-only панель управления, снята {{dash.shotOn}}: здоровье {{dash.health}}, {{dash.findings}} findings, {{dash.graphFiles}} файлов графа, {{dash.wikiPages}} страниц вики, {{dash.memoryEntries}} записей памяти, {{dash.modules}} модулей",
         },
       },
     ],

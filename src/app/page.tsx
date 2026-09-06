@@ -127,7 +127,7 @@ export default function Page() {
                       decoding="async"
                     />
                     <figcaption>
-                      <T v={shot.caption} html />
+                      <T v={fill(shot.caption)} html />
                     </figcaption>
                   </figure>
                 ))}

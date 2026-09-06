@@ -14,14 +14,20 @@ on every task.
 
 ## The figures are not typed in
 
-Copy carries `{{token}}` placeholders instead of numbers. They are filled at
-build time from `data/profile.json`, which comes only from the GitHub and npm
-APIs and is committed next to the code, so a build is reproducible offline and a
-claim on the page cannot drift away from its source.
+Copy carries `{{token}}` placeholders instead of numbers, filled at build time
+from two committed snapshots — `data/profile.json` (GitHub and npm counters) and
+`data/dashboard.json` (the keryx dashboard header). Both sit next to the code, so
+a build is reproducible offline and no claim on the page can drift away from its
+source.
+
+The dashboard screenshot is the case that made this worth doing: its caption used
+to carry hand-typed numbers, and they were wrong within weeks. Picture and
+caption now come out of one render of one page.
 
 ```bash
 bun run data     # refresh data/profile.json from the APIs
 bun run shots    # crop and convert screenshots into public/shots
+bun run shot:dash <path-to-keryx-dashboard.html>   # re-shoot the dashboard
 bun run dev      # local
 bun run build    # static export into out/
 ```

@@ -2,12 +2,17 @@
 
 The site is a static export — nothing runs on a server.
 
-`data/profile.json` holds a committed snapshot of the public GitHub and npm APIs
-(commit counts, release counts, published versions). The nightly workflow keeps
-it current. **The page copy does not read it yet** — the figures in the layer text
-are still written by hand, and the snapshot exists so they can be wired to a
-source instead. Until that is done, treat the workflow as keeping the evidence
-fresh, not the page.
+Every figure the page states about these repositories is a `{{token}}` in the
+copy, filled at build time from two committed snapshots:
+
+- `data/profile.json` — commits, tags and npm versions, from the GitHub and npm APIs.
+- `data/dashboard.json` — the keryx dashboard header, read off the same render
+  that produced `public/shots/dashboard.webp`, so the picture and its caption
+  cannot disagree.
+
+The nightly workflow refreshes both and commits **only when a value actually
+moved**. The screenshot re-renders byte-differently every run, so committing it
+unconditionally would rebuild the site every night for nothing.
 
 ## Hosting: Cloudflare Pages
 

@@ -1,9 +1,11 @@
-# Refreshes data/profile.json from the public GitHub and npm APIs.
+# Keeps the numbers on the page true.
 #
-# The snapshot is committed, so a build never depends on a network call and the
-# numbers on the page are reproducible from the repository alone. This job just
-# keeps the snapshot from going stale; the commit it makes triggers the Pages build.
-name: refresh profile data
+# Two things drift: the repository counters (commits, tags, npm versions) and
+# the keryx dashboard the site shows a picture of. Both are refreshed here, and
+# a commit is made only when a value actually moved — the screenshot re-renders
+# byte-differently every time, so committing it unconditionally would rebuild
+# the site every night for nothing.
+name: refresh figures
 
 on:
   schedule:
@@ -23,19 +25,43 @@ jobs:
         with:
           bun-version: latest
 
+      - run: bun install --frozen-lockfile
+
+      # ---- the repository counters -------------------------------------
       - name: Fetch profile
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bun run scripts/fetch-profile.ts
 
-      - name: Commit if the numbers moved
+      # ---- the dashboard the site shows --------------------------------
+      # Allowed to fail: a broken keryx build should not hold back a figure
+      # refresh that has nothing to do with it.
+      - name: Re-shoot the keryx dashboard
+        id: dashboard
+        continue-on-error: true
         run: |
-          if git diff --quiet -- data/profile.json; then
+          bunx playwright install --with-deps chromium
+          git clone --depth 1 https://github.com/MrCipherSmith/keryx.git "$RUNNER_TEMP/keryx"
+          cd "$RUNNER_TEMP/keryx"
+          bunx --bun @mrciphersmith/keryx gdgraph build
+          bunx --bun @mrciphersmith/keryx health run
+          bunx --bun @mrciphersmith/keryx dashboard build
+          cd "$GITHUB_WORKSPACE"
+          bun run scripts/shoot-dashboard.ts "$RUNNER_TEMP/keryx/.metaproject/keryx-dashboard.html"
+
+      - name: Report a failed re-shoot without failing the run
+        if: steps.dashboard.outcome == 'failure'
+        run: echo "::warning::the dashboard could not be re-shot; the picture and its caption stay as they were"
+
+      # ---- publish only what moved -------------------------------------
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- data public; then
             echo "no change"
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/profile.json
-          git commit -m "chore(data): refresh profile snapshot"
+          git add data public
+          git commit -m "chore(data): refresh figures$(git diff --cached --name-only | grep -q dashboard && echo ' and dashboard shot' || true)"
           git push

@@ -1,3 +1,4 @@
+import dashboard from "@data/dashboard.json";
 import profile from "@data/profile.json";
 import type { TX } from "@/lib/tx";
 
@@ -40,7 +41,28 @@ const DATE: TX = {
   }),
 };
 
+/** Read off the same render that produced public/shots/dashboard.webp. */
+const SHOT_ON: TX = {
+  en: new Date(dashboard.shotAt).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }),
+  ru: new Date(dashboard.shotAt).toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }),
+};
+
 export const FIGURES: Record<string, TX> = {
+  "dash.health": num(dashboard.health),
+  "dash.findings": num(dashboard.findings),
+  "dash.graphFiles": num(dashboard.graphFiles),
+  "dash.wikiPages": num(dashboard.wikiPages),
+  "dash.memoryEntries": num(dashboard.memoryEntries),
+  "dash.modules": num(dashboard.modules),
+  "dash.shotOn": SHOT_ON,
   "keryx.commits": num(keryx.commits),
   "keryx.releases": num(keryx.releases),
   "helyx.commits": num(helyx.commits),
