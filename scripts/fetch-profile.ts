@@ -171,7 +171,23 @@ async function main() {
     },
   };
 
-  await Bun.write(OUT, JSON.stringify(profile, null, 2) + "\n");
+  // Only the timestamp changes on a run where nothing moved. Writing it anyway
+  // would put a commit — and a rebuild — on the calendar every night for a date
+  // nobody reads, so the snapshot is left alone unless a value actually differs.
+  const next = JSON.stringify(profile, null, 2) + "\n";
+  let previous = "";
+  try {
+    previous = await Bun.file(OUT).text();
+  } catch {
+    /* first run */
+  }
+  const strip = (text: string) => text.replace(/"generatedAt": "[^"]*",\n\s*/, "");
+  if (previous && strip(previous) === strip(next)) {
+    console.log("profile unchanged, nothing written");
+    return;
+  }
+
+  await Bun.write(OUT, next);
   console.log(
     `wrote data/profile.json — ${own.length} own repos, ` +
       `${profile.totals.commits} commits, ${profile.totals.releases} releases`,

@@ -313,8 +313,8 @@ export const LAYERS: Layer[] = [
 ];
 
 export const PROVENANCE: TX = {
-  en: "Every figure above about these repositories was read from the GitHub and npm APIs on {{read.on}}, not typed in. The snapshot is committed next to the code and refreshed nightly; if a number here is wrong, the source is wrong with it.",
-  ru: "Каждое число выше об этих репозиториях прочитано из API GitHub и npm {{read.on}}, а не вписано руками. Снапшот лежит в репозитории рядом с кодом и обновляется каждую ночь; если число здесь неверно, значит неверен и источник.",
+  en: "Every figure above about these repositories was read from the GitHub and npm APIs on {{read.on}}, not typed in, and is re-checked every night. The snapshot is committed next to the code; if a number here is wrong, the source is wrong with it.",
+  ru: "Каждое число выше об этих репозиториях прочитано из API GitHub и npm {{read.on}}, а не вписано руками, и перепроверяется каждую ночь. Снапшот лежит в репозитории рядом с кодом; если число здесь неверно, значит неверен и источник.",
 };
 
 export const COLD_OPEN: TX = {
