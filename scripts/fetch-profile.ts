@@ -11,6 +11,12 @@
  */
 
 const LOGIN = "MrCipherSmith";
+/**
+ * This site's own repository. Counting it would feed a loop: the nightly job
+ * commits here, which moves the count, which makes the next night commit again,
+ * for a number the page never shows.
+ */
+const SELF = "coldstart";
 const NPM_PACKAGES = ["@mrciphersmith/keryx"];
 const OUT = new URL("../data/profile.json", import.meta.url);
 
@@ -90,6 +96,7 @@ async function main() {
 
   const repos = [];
   for (const r of rawRepos) {
+    if (r.name === SELF) continue;
     const languages = r.fork
       ? {}
       : await gh<Record<string, number>>(`repos/${LOGIN}/${r.name}/languages`);
