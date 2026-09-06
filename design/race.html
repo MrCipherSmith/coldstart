@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RACE — motion prototype</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:14px/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    transition:background .4s ease,color .4s ease}
+  :root{--bg:#08090b;--fg:#e3e8ec;--muted:#6d767f;--line:#191d23;--panel:#0d0f13;
+        --cold:#e0785f;--warm:#5fe0a4}
+  html[data-theme="light"]{--bg:#f7f7f4;--fg:#15181b;--muted:#6b7278;--line:#e2e2db;--panel:#fff;
+        --cold:#b8442a;--warm:#0a7f52}
+  [lang-ru]{display:none}
+  html[data-lang="ru"] [lang-en]{display:none}
+  html[data-lang="ru"] [lang-ru]{display:revert}
+
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 26px;
+    border-bottom:1px solid var(--line)}
+  .task{flex:1 1 380px;min-width:280px}
+  .task .k{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--muted)}
+  .task .q{font-size:16px;margin-top:7px;letter-spacing:-.01em}
+  button{appearance:none;cursor:pointer;font:500 12px/1 ui-monospace,monospace;
+    border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:7px;padding:10px 15px}
+  #go{border-color:var(--warm);color:var(--warm)}
+  #go[disabled]{opacity:.4;cursor:default;border-color:var(--line);color:var(--muted)}
+  .seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--panel)}
+  .seg button{border:0;border-radius:0;padding:9px 11px;color:var(--muted)}
+  .seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100svh - 150px)}
+  .pane{padding:22px 26px;position:relative}
+  .pane + .pane{border-left:1px solid var(--line)}
+  .pane h2{font-size:13px;font-weight:500;letter-spacing:.02em;margin:0}
+  .pane .sub{font-size:11px;color:var(--muted);margin-top:5px}
+  .pane.cold h2{color:var(--cold)} .pane.warm h2{color:var(--warm)}
+  .bulb{display:inline-block;width:7px;height:7px;border-radius:9px;margin-right:8px;
+    background:var(--muted);vertical-align:1px}
+  .pane.cold.run .bulb{background:var(--cold);animation:bp .7s infinite}
+  .pane.warm.run .bulb{background:var(--warm);animation:bp .7s infinite}
+  @keyframes bp{50%{opacity:.25}}
+
+  .log{margin-top:20px;min-height:340px}
+  .step{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:5px 0;
+    opacity:0;transform:translateY(6px);animation:in .3s ease forwards}
+  @keyframes in{to{opacity:1;transform:none}}
+  .step .t{color:var(--muted);font-size:11px;text-align:right;padding-top:1px}
+  .step .c{color:var(--muted);font-size:12.5px;word-break:break-word}
+  .step .c b{color:var(--fg);font-weight:400}
+  .step.hit .c b{color:var(--warm)}
+  .step.miss .c{color:var(--cold);opacity:.85}
+
+  .answer{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;
+    opacity:0;transition:opacity .5s ease}
+  .answer.on{opacity:1}
+  .answer .k{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--muted)}
+  .answer p{margin:10px 0 0;font-size:14px}
+  .pane.cold .answer p{color:var(--cold)}
+  .answer ul{margin:10px 0 0;padding-left:16px;color:var(--muted);font-size:13px}
+  .answer li{margin:3px 0}
+  .answer li b{color:var(--fg);font-weight:400}
+
+  .meter{display:flex;gap:26px;margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+  .meter div{min-width:64px}
+  .meter .n{font-size:21px;letter-spacing:-.02em}
+  .pane.cold .meter .n{color:var(--cold)} .pane.warm .meter .n{color:var(--warm)}
+  .meter .l{font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  footer{padding:14px 26px 30px;color:var(--muted);font-size:11px;border-top:1px solid var(--line)}
+  @media (max-width:820px){ .grid{grid-template-columns:1fr}
+    .pane + .pane{border-left:0;border-top:1px solid var(--line)} }
+  @media (prefers-reduced-motion:reduce){ .step{animation:none;opacity:1;transform:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="task">
+    <div class="k"><span lang-en>the task, given to both</span><span lang-ru>задача, одна на двоих</span></div>
+    <div class="q"><span lang-en>“Add a retry to the payment client. What does that change touch?”</span>
+      <span lang-ru>«Добавь ретрай в платёжный клиент. Что это заденет?»</span></div>
+  </div>
+  <button id="go"><span lang-en>▶ run both</span><span lang-ru>▶ запустить обоих</span></button>
+  <div class="seg" data-seg="theme">
+    <button data-v="dark" aria-pressed="true">dark</button>
+    <button data-v="light" aria-pressed="false">light</button>
+  </div>
+  <div class="seg" data-seg="lang">
+    <button data-v="en" aria-pressed="true">EN</button>
+    <button data-v="ru" aria-pressed="false">RU</button>
+  </div>
+</header>
+
+<div class="grid">
+  <div class="pane cold" id="pCold">
+    <h2><span class="bulb"></span><span lang-en>agent with no project context</span><span lang-ru>агент без контекста проекта</span></h2>
+    <div class="sub"><span lang-en>reads the repository from scratch, every task, every time</span>
+      <span lang-ru>читает репозиторий с нуля, каждую задачу, каждый раз</span></div>
+    <div class="log" id="lCold"></div>
+    <div class="answer" id="aCold">
+      <div class="k"><span lang-en>answer</span><span lang-ru>ответ</span></div>
+      <p><span lang-en>“Probably the checkout flow. I could not determine the full set of dependents — there may be callers I have not read.”</span>
+        <span lang-ru>«Вероятно, флоу оформления заказа. Полный набор зависимых определить не удалось — возможно, есть вызывающие, которых я не прочитал.»</span></p>
+    </div>
+    <div class="meter">
+      <div><div class="n" id="mColdS">0</div><div class="l"><span lang-en>steps</span><span lang-ru>шагов</span></div></div>
+      <div><div class="n" id="mColdF">0</div><div class="l"><span lang-en>files read</span><span lang-ru>файлов</span></div></div>
+      <div><div class="n" id="mColdT">0.0s</div><div class="l"><span lang-en>elapsed</span><span lang-ru>время</span></div></div>
+    </div>
+  </div>
+
+  <div class="pane warm" id="pWarm">
+    <h2><span class="bulb"></span><span lang-en>same agent, with .metaproject/</span><span lang-ru>тот же агент, с .metaproject/</span></h2>
+    <div class="sub"><span lang-en>the repository already answered these questions once, in a diff</span>
+      <span lang-ru>репозиторий уже ответил на эти вопросы один раз, в диффе</span></div>
+    <div class="log" id="lWarm"></div>
+    <div class="answer" id="aWarm">
+      <div class="k"><span lang-en>answer</span><span lang-ru>ответ</span></div>
+      <ul>
+        <li><span lang-en>dependents: <b>orders/checkout.ts</b>, <b>orders/refund.ts</b>, <b>billing/webhook.ts</b></span>
+          <span lang-ru>зависимые: <b>orders/checkout.ts</b>, <b>orders/refund.ts</b>, <b>billing/webhook.ts</b></span></li>
+        <li><span lang-en>tests that verify it: <b>payments.test.ts</b>, <b>orders.e2e.ts</b></span>
+          <span lang-ru>проверяющие тесты: <b>payments.test.ts</b>, <b>orders.e2e.ts</b></span></li>
+        <li><span lang-en>constraint on record: <b>retries must be idempotent</b> (decision ADR-014)</span>
+          <span lang-ru>записанное ограничение: <b>ретраи обязаны быть идемпотентны</b> (решение ADR-014)</span></li>
+        <li><span lang-en>memory: <b>a retry storm took staging down in April.</b> Do not retry on 5xx without a cap.</span>
+          <span lang-ru>память: <b>в апреле шторм ретраев уронил стейджинг.</b> Не ретраить 5xx без предела.</span></li>
+      </ul>
+    </div>
+    <div class="meter">
+      <div><div class="n" id="mWarmS">0</div><div class="l"><span lang-en>steps</span><span lang-ru>шагов</span></div></div>
+      <div><div class="n" id="mWarmF">0</div><div class="l"><span lang-en>files read</span><span lang-ru>файлов</span></div></div>
+      <div><div class="n" id="mWarmT">0.0s</div><div class="l"><span lang-en>elapsed</span><span lang-ru>время</span></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span lang-en>A staged reconstruction of the two session shapes — not a benchmark, and the file names are invented. What is real is the difference in kind: the left agent can only find files, the right one also finds the decision and the failure that already happened.</span>
+  <span lang-ru>Инсценировка формы двух сессий — не замер, имена файлов выдуманы. Настоящее здесь одно: разница в природе ответа. Левый агент способен найти только файлы, правый находит ещё и решение, и уже случившуюся аварию.</span>
+</footer>
+
+<script>
+const root = document.documentElement;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const COLD = [
+  {t:0.4,  c:{en:'read <b>package.json</b>',ru:'читаю <b>package.json</b>'}, f:1},
+  {t:1.9,  c:{en:'grep <b>"payment"</b> — 48 matches across 21 files',ru:'grep <b>"payment"</b> — 48 совпадений в 21 файле'}},
+  {t:3.6,  c:{en:'read <b>src/payments/client.ts</b>',ru:'читаю <b>src/payments/client.ts</b>'}, f:1},
+  {t:5.8,  c:{en:'read <b>src/payments/index.ts</b>',ru:'читаю <b>src/payments/index.ts</b>'}, f:1},
+  {t:8.1,  c:{en:'grep <b>"PaymentClient"</b> — 11 matches',ru:'grep <b>"PaymentClient"</b> — 11 совпадений'}},
+  {t:11.0, c:{en:'read <b>src/orders/checkout.ts</b>',ru:'читаю <b>src/orders/checkout.ts</b>'}, f:1},
+  {t:14.2, c:{en:'read <b>src/orders/refund.ts</b>',ru:'читаю <b>src/orders/refund.ts</b>'}, f:1},
+  {t:17.5, c:{en:'read <b>src/core/http.ts</b>',ru:'читаю <b>src/core/http.ts</b>'}, f:1},
+  {t:21.0, c:{en:'grep <b>"retry"</b> — 34 matches, mostly unrelated',ru:'grep <b>"retry"</b> — 34 совпадения, почти все не по теме'}},
+  {t:25.4, c:{en:'read <b>tests/payments.test.ts</b>',ru:'читаю <b>tests/payments.test.ts</b>'}, f:1},
+  {t:29.9, c:{en:'read <b>src/billing/webhook.ts</b>',ru:'читаю <b>src/billing/webhook.ts</b>'}, f:1},
+  {t:33.6, c:{en:'read <b>src/core/config.ts</b>',ru:'читаю <b>src/core/config.ts</b>'}, f:1},
+  {t:36.2, cls:'miss', c:{en:'context window filling — dropping earlier files',ru:'окно контекста заполняется — выбрасываю ранние файлы'}},
+  {t:38.2, cls:'miss', c:{en:'9 files read. Callers outside these paths were not checked.',ru:'прочитано 9 файлов. Вызывающие вне этих путей не проверены.'}},
+];
+const WARM = [
+  {t:0.2, cls:'hit', c:{en:'read <b>.metaproject/index.md</b>',ru:'читаю <b>.metaproject/index.md</b>'}},
+  {t:0.9, cls:'hit', c:{en:'<b>graph_affected</b> src/payments/client.ts',ru:'<b>graph_affected</b> src/payments/client.ts'}},
+  {t:1.4, cls:'hit', c:{en:'<b>memory_search</b> "payment retry" — 1 lesson, 1 decision',ru:'<b>memory_search</b> «payment retry» — 1 урок, 1 решение'}},
+];
+
+const $ = id => document.getElementById(id);
+let running = false, timers = [];
+
+function line(step) {
+  const d = document.createElement('div');
+  d.className = 'step' + (step.cls ? ' ' + step.cls : '');
+  d.innerHTML = `<div class="t">${step.t.toFixed(1)}s</div><div class="c">${step.c[root.dataset.lang]}</div>`;
+  return d;
+}
+
+function run() {
+  if (running) return;
+  running = true;
+  timers.forEach(clearTimeout); timers = [];
+  for (const id of ['lCold','lWarm']) $(id).textContent = '';
+  for (const id of ['aCold','aWarm']) $(id).classList.remove('on');
+  $('pCold').classList.add('run'); $('pWarm').classList.add('run');
+  $('go').disabled = true;
+
+  const SPEED = reduce ? 0 : 55;   /* 55ms of wall clock per simulated second */
+  const play = (steps, logId, paneId, ansId, sId, fId, tId) => {
+    let files = 0;
+    steps.forEach((s, i) => {
+      timers.push(setTimeout(() => {
+        $(logId).appendChild(line(s));
+        $(sId).textContent = i + 1;
+        if (s.f) $(fId).textContent = (files += s.f);
+        $(tId).textContent = s.t.toFixed(1) + 's';
+        if (i === steps.length - 1) {
+          $(ansId).classList.add('on');
+          document.getElementById(paneId).classList.remove('run');
+          if (paneId === 'pCold') { running = false; $('go').disabled = false; }
+        }
+      }, s.t * SPEED));
+    });
+  };
+  play(COLD, 'lCold', 'pCold', 'aCold', 'mColdS', 'mColdF', 'mColdT');
+  play(WARM, 'lWarm', 'pWarm', 'aWarm', 'mWarmS', 'mWarmF', 'mWarmT');
+}
+
+$('go').addEventListener('click', run);
+for (const seg of document.querySelectorAll('[data-seg]')) seg.addEventListener('click', e => {
+  const v = e.target.dataset.v; if (!v) return;
+  root.dataset[seg.dataset.seg] = v;
+  if (seg.dataset.seg === 'lang') root.lang = v;
+  for (const b of seg.children) b.setAttribute('aria-pressed', String(b.dataset.v === v));
+});
+setTimeout(run, 700);
+</script>
+</body>
+</html>

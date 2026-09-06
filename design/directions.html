@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mrciphersmith.com — design directions</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font:14px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--chrome-bg);color:var(--chrome-fg)}
+
+  /* ---------- chrome (the comparison shell, not part of any design) ---------- */
+  :root{--chrome-bg:#0d0e11;--chrome-fg:#e8eaed;--chrome-line:#24272d;--chrome-panel:#15171b;--chrome-mut:#878e96}
+  html[data-theme="light"]{--chrome-bg:#eceef1;--chrome-fg:#16181c;--chrome-line:#d3d7dd;--chrome-panel:#fff;--chrome-mut:#666d75}
+  .bar{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    padding:12px 20px;background:var(--chrome-panel);border-bottom:1px solid var(--chrome-line)}
+  .bar h1{font:600 13px/1 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;margin:0 auto 0 0}
+  .seg{display:flex;border:1px solid var(--chrome-line);border-radius:7px;overflow:hidden}
+  .seg button{appearance:none;border:0;background:transparent;color:var(--chrome-mut);
+    font:500 12px/1 ui-monospace,"SF Mono",Menlo,monospace;padding:7px 12px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--chrome-fg);color:var(--chrome-panel)}
+  .lbl{font:11px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--chrome-mut)}
+  .caption{max-width:960px;margin:0 auto;padding:34px 20px 14px}
+  .caption .tag{display:inline-block;font:600 11px/1 ui-monospace,monospace;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--chrome-mut);border:1px solid var(--chrome-line);border-radius:99px;padding:6px 11px}
+  .caption h2{font-size:26px;margin:14px 0 6px;letter-spacing:-.02em}
+  .caption p{margin:0;color:var(--chrome-mut);max-width:64ch}
+  .frame{border-top:1px solid var(--chrome-line);border-bottom:1px solid var(--chrome-line)}
+
+  [lang-ru]{display:none}
+  html[data-lang="ru"] [lang-en]{display:none}
+  html[data-lang="ru"] [lang-ru]{display:revert}
+
+  /* ================= shared demo primitives ================= */
+  .demo{padding:64px 40px;font-family:var(--font-body)}
+  .demo .wrap{max-width:1080px;margin:0 auto}
+  .eyebrow{font:600 11px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .lede{color:var(--muted);max-width:60ch}
+  .cmd{font-family:var(--font-mono);font-size:13px}
+  svg .edge{stroke:var(--edge);stroke-width:1.25;fill:none}
+  svg .edge-hot{stroke:var(--accent);stroke-width:1.75}
+  svg .nlabel{font:500 12px var(--font-mono);fill:var(--fg)}
+  svg .nsub{font:10px var(--font-mono);fill:var(--muted)}
+
+  /* ================= A — TERMINAL LEDGER ================= */
+  #a{--font-body:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--font-mono:ui-monospace,"SF Mono",Menlo,monospace;
+     --bg:#0a0b0d;--panel:#0f1114;--fg:#dfe3e7;--muted:#79828b;--line:#1e2329;--edge:#2c333b;--accent:#5fe0a4}
+  html[data-theme="light"] #a{--bg:#fbfbf9;--panel:#fff;--fg:#14161a;--muted:#666d74;--line:#e3e3dd;--edge:#cfd2cd;--accent:#0a7f52}
+  #a{background:var(--bg);color:var(--fg)}
+  #a .rule{border-top:1px solid var(--line);margin:34px 0}
+  #a h3{font:400 clamp(28px,4vw,44px)/1.15 var(--font-body);margin:16px 0 12px;letter-spacing:-.02em}
+  #a h3 b{font-weight:600;color:var(--accent)}
+  #a .cmdbox{display:flex;gap:10px;align-items:center;border:1px solid var(--line);background:var(--panel);
+    padding:12px 14px;margin:22px 0 0;max-width:640px}
+  #a .cmdbox span:first-child{color:var(--accent)}
+  #a .cmdbox .copy{margin-left:auto;color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  #a .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border:1px solid var(--line);margin-top:14px}
+  #a .stats div{padding:14px 16px;border-right:1px solid var(--line)}
+  #a .stats div:last-child{border-right:0}
+  #a .stats b{display:block;font-size:22px;font-weight:500;letter-spacing:-.02em}
+  #a .stats small{color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  #a .cols{display:grid;grid-template-columns:1.35fr 1fr;gap:34px;align-items:start}
+  #a .mem{border:1px solid var(--line);background:var(--panel);padding:16px 18px}
+  #a .mem .k{color:var(--accent);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  #a .mem p{margin:8px 0 0;color:var(--muted)}
+  #a svg .node{fill:var(--panel);stroke:var(--line)}
+  #a svg .node-hot{fill:var(--panel);stroke:var(--accent)}
+
+  /* ================= B — GRAPH CANVAS ================= */
+  #b{--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--font-mono:ui-monospace,"SF Mono",Menlo,monospace;
+     --bg:#06060c;--panel:rgba(255,255,255,.045);--fg:#f0f1f8;--muted:#9a9cb4;--line:rgba(255,255,255,.09);
+     --edge:rgba(255,255,255,.16);--accent:#8f7cff;--accent2:#3fd8ff}
+  html[data-theme="light"] #b{--bg:#f2f3fa;--panel:rgba(255,255,255,.72);--fg:#12132a;--muted:#5f6284;
+     --line:rgba(20,20,60,.10);--edge:rgba(20,20,60,.18);--accent:#5b46f0;--accent2:#0a92c9}
+  #b{position:relative;background:var(--bg);color:var(--fg);overflow:hidden}
+  #b::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;
+    background:radial-gradient(46% 52% at 22% 30%,color-mix(in srgb,var(--accent) 42%,transparent),transparent 70%),
+               radial-gradient(40% 46% at 82% 62%,color-mix(in srgb,var(--accent2) 34%,transparent),transparent 70%);
+    filter:blur(38px);opacity:.5;pointer-events:none}
+  #b .wrap{position:relative}
+  #b h3{font:650 clamp(32px,5vw,58px)/1.05 var(--font-body);letter-spacing:-.035em;margin:14px 0 14px;max-width:16ch}
+  #b h3 em{font-style:normal;background:linear-gradient(96deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  #b .glass{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  #b .cmdbox{display:inline-flex;gap:12px;align-items:center;padding:13px 18px;border-radius:999px;margin-top:24px}
+  #b .cmdbox .dot{width:7px;height:7px;border-radius:99px;background:var(--accent2);box-shadow:0 0 12px var(--accent2)}
+  #b .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:stretch;margin-top:40px}
+  #b .card{padding:22px 24px}
+  #b .stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px}
+  #b .stats b{display:block;font:650 26px/1 var(--font-body);letter-spacing:-.03em}
+  #b .stats small{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  #b .mem .k{color:var(--accent2);font:600 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase}
+  #b .mem p{margin:10px 0 0;color:var(--muted)}
+  #b svg .node{fill:var(--panel);stroke:var(--line)}
+  #b svg .node-hot{fill:color-mix(in srgb,var(--accent) 22%,transparent);stroke:var(--accent)}
+
+  /* ================= C — DOCUMENT / SPEC ================= */
+  #c{--font-body:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--font-mono:ui-monospace,"SF Mono",Menlo,monospace;
+     --bg:#121214;--panel:#191a1d;--fg:#e9e6df;--muted:#9a958a;--line:#2a2b2f;--edge:#3a3b40;--accent:#e08b3c}
+  html[data-theme="light"] #c{--bg:#f7f4ee;--panel:#fffdf8;--fg:#1b1915;--muted:#6d675c;--line:#ddd7c9;--edge:#c9c2b1;--accent:#b1590f}
+  #c{background:var(--bg);color:var(--fg)}
+  #c .doc{display:grid;grid-template-columns:200px 1fr;gap:44px}
+  #c nav{position:sticky;top:80px;align-self:start;font-family:var(--font-mono);font-size:11.5px;line-height:2.1}
+  #c nav a{display:block;color:var(--muted);text-decoration:none;border-left:2px solid transparent;padding-left:12px}
+  #c nav a.on{color:var(--fg);border-left-color:var(--accent)}
+  #c nav .h{color:var(--muted);opacity:.6;letter-spacing:.14em;text-transform:uppercase;font-size:10px;padding-left:12px;margin-top:16px}
+  #c h3{font:400 clamp(30px,4.4vw,50px)/1.12 var(--font-body);letter-spacing:-.015em;margin:10px 0 16px;max-width:20ch}
+  #c .num{font:600 11px/1 var(--font-mono);letter-spacing:.2em;color:var(--accent)}
+  #c .lede{font-size:17px;line-height:1.65}
+  #c .cmdbox{border-left:2px solid var(--accent);background:var(--panel);padding:14px 18px;margin:26px 0 0;max-width:620px}
+  #c .cmdbox small{display:block;font:11px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  #c table{width:100%;border-collapse:collapse;margin-top:20px;font-family:var(--font-mono);font-size:12.5px}
+  #c th,#c td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}
+  #c th{color:var(--muted);font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  #c td b{font-weight:600;font-size:15px}
+  #c .mem{border-top:1px solid var(--line);padding-top:16px;margin-top:26px}
+  #c .mem .k{font:600 10px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  #c .mem p{margin:9px 0 0;color:var(--muted);font-size:15.5px}
+  #c svg .node{fill:var(--panel);stroke:var(--line)}
+  #c svg .node-hot{fill:var(--panel);stroke:var(--accent);stroke-width:1.5}
+  #c svg .nlabel{font-family:var(--font-mono)}
+
+  @media (max-width:840px){
+    .demo{padding:44px 22px}
+    #a .cols,#b .cols,#c .doc{grid-template-columns:1fr}
+    #c nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <h1>mrciphersmith.com — design directions</h1>
+  <span class="lbl">theme</span>
+  <div class="seg" id="themeSeg">
+    <button data-theme-set="dark" aria-pressed="true">dark</button>
+    <button data-theme-set="light" aria-pressed="false">light</button>
+  </div>
+  <span class="lbl">lang</span>
+  <div class="seg" id="langSeg">
+    <button data-lang-set="en" aria-pressed="true">EN</button>
+    <button data-lang-set="ru" aria-pressed="false">RU</button>
+  </div>
+</div>
+
+<!-- ============================== A ============================== -->
+<div class="caption">
+  <span class="tag">Direction A</span>
+  <h2><span lang-en>Terminal Ledger</span><span lang-ru>Терминальный реестр</span></h2>
+  <p>
+    <span lang-en>Everything monospaced, hairline rules, no glow. The page reads like <code>keryx dash</code> output: dense, quiet, evidence per row. Light theme is paper and ink. Says: infrastructure, not marketing.</span>
+    <span lang-ru>Всё моноширинное, волосяные линейки, никакого свечения. Страница читается как вывод <code>keryx dash</code>: плотно, тихо, доказательство в каждой строке. Светлая тема — бумага и чернила. Говорит: инфраструктура, а не маркетинг.</span>
+  </p>
+</div>
+<section class="frame demo" id="a"><div class="wrap">
+  <div class="eyebrow">.metaproject / mrciphersmith</div>
+  <h3><span lang-en>This is not a résumé.<br>It is <b>context</b>.</span><span lang-ru>Это не резюме.<br>Это <b>контекст</b>.</span></h3>
+  <p class="lede">
+    <span lang-en>Five attempts at one problem: what an AI agent is allowed to know about your repository. Read it yourself, or let your agent read it — same file.</span>
+    <span lang-ru>Пять подходов к одной задаче: что ИИ-агенту вообще позволено знать о твоём репозитории. Читай сам или отдай своему агенту — файл один и тот же.</span>
+  </p>
+  <div class="cmdbox cmd"><span>$</span><span>curl -s https://mrciphersmith.com/metaproject/index.md</span><span class="copy">copy</span></div>
+  <div class="stats">
+    <div><b>2 039</b><small>commits</small></div>
+    <div><b>120</b><small>releases</small></div>
+    <div><b>68</b><small>npm versions</small></div>
+    <div><b>8</b><small>repositories</small></div>
+    <div><b>1</b><small>star</small></div>
+  </div>
+  <div class="rule"></div>
+  <div class="cols">
+    <div>
+      <div class="eyebrow" style="margin-bottom:14px">gdgraph — trajectory</div>
+      <svg viewBox="0 0 640 210" width="100%" role="img" aria-label="trajectory graph"><path class="edge" d="M96 78 H150"/>
+    <path class="edge" d="M226 78 H280"/>
+    <path class="edge edge-hot" d="M356 78 H430"/>
+    <path class="edge" d="M330 96 C330 150 360 158 400 158"/>
+    <path class="edge edge-hot" d="M476 158 C512 158 505 100 505 96"/>
+    <circle class="node" cx="60" cy="78" r="26"/>
+    <circle class="node" cx="190" cy="78" r="26"/>
+    <circle class="node" cx="320" cy="78" r="30"/>
+    <circle class="node" cx="440" cy="158" r="26"/>
+    <circle class="node-hot" cx="505" cy="78" r="34"/>
+    <text class="nlabel" x="60" y="126" text-anchor="middle">goodocs</text>
+    <text class="nsub" x="60" y="140" text-anchor="middle">nov 25</text>
+    <text class="nlabel" x="190" y="126" text-anchor="middle">ecma</text>
+    <text class="nsub" x="190" y="140" text-anchor="middle">jan 26</text>
+    <text class="nlabel" x="320" y="130" text-anchor="middle">goodai-base</text>
+    <text class="nsub" x="320" y="144" text-anchor="middle">feb 26</text>
+    <text class="nlabel" x="440" y="200" text-anchor="middle">helyx</text>
+    <text class="nsub" x="440" y="186" text-anchor="middle">apr 26</text>
+    <text class="nlabel" x="505" y="30" text-anchor="middle">keryx</text>
+    <text class="nsub" x="505" y="16" text-anchor="middle">jul 26</text></svg>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:14px">memory</div>
+      <div class="mem">
+        <div class="k">lesson</div>
+        <p><span lang-en>Retrieval is not behaviour. An agent that can look a rule up still does not follow it.</span><span lang-ru>Извлечение — не поведение. Агент, умеющий найти правило, всё ещё ему не следует.</span></p>
+      </div>
+      <div class="mem" style="margin-top:12px">
+        <div class="k">constraint</div>
+        <p><span lang-en>An agent may not end a turn by asserting it is done. Completion is gated on evidence.</span><span lang-ru>Агент не может закончить ход, заявив, что он закончил. Завершение открывается доказательством.</span></p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================== B ============================== -->
+<div class="caption">
+  <span class="tag">Direction B</span>
+  <h2><span lang-en>Graph Canvas</span><span lang-ru>Граф-полотно</span></h2>
+  <p>
+    <span lang-en>The graph is the page. Full-bleed field, content floating in glass panels, gradient accent, motion on the edges. The most product-forward of the three — built to convert a visitor into <code>npm i -g</code>. Risk: closer to how every AI startup looks.</span>
+    <span lang-ru>Граф и есть страница. Поле во весь экран, контент в стеклянных панелях, градиентный акцент, движение по рёбрам. Самое продуктовое из трёх — заточено превращать посетителя в <code>npm i -g</code>. Риск: ближе всего к тому, как выглядит любой ИИ-стартап.</span>
+  </p>
+</div>
+<section class="frame demo" id="b"><div class="wrap">
+  <div class="eyebrow">.metaproject / mrciphersmith</div>
+  <h3><span lang-en>This is not a résumé. It is <em>context</em>.</span><span lang-ru>Это не резюме. Это <em>контекст</em>.</span></h3>
+  <p class="lede">
+    <span lang-en>Five attempts at one problem: what an AI agent is allowed to know about your repository.</span>
+    <span lang-ru>Пять подходов к одной задаче: что ИИ-агенту вообще позволено знать о твоём репозитории.</span>
+  </p>
+  <div class="glass cmdbox cmd"><span class="dot"></span><span>npm install -g @mrciphersmith/keryx</span></div>
+  <div class="stats">
+    <div><b>2 039</b><small>commits</small></div>
+    <div><b>120</b><small>releases</small></div>
+    <div><b>68</b><small>npm versions</small></div>
+    <div><b>8</b><small>repositories</small></div>
+    <div><b>1</b><small>star</small></div>
+  </div>
+  <div class="cols">
+    <div class="glass card">
+      <div class="eyebrow" style="margin-bottom:12px">gdgraph — trajectory</div>
+      <svg viewBox="0 0 640 210" width="100%" role="img" aria-label="trajectory graph"><path class="edge" d="M96 78 H150"/>
+    <path class="edge" d="M226 78 H280"/>
+    <path class="edge edge-hot" d="M356 78 H430"/>
+    <path class="edge" d="M330 96 C330 150 360 158 400 158"/>
+    <path class="edge edge-hot" d="M476 158 C512 158 505 100 505 96"/>
+    <circle class="node" cx="60" cy="78" r="26"/>
+    <circle class="node" cx="190" cy="78" r="26"/>
+    <circle class="node" cx="320" cy="78" r="30"/>
+    <circle class="node" cx="440" cy="158" r="26"/>
+    <circle class="node-hot" cx="505" cy="78" r="34"/>
+    <text class="nlabel" x="60" y="126" text-anchor="middle">goodocs</text>
+    <text class="nsub" x="60" y="140" text-anchor="middle">nov 25</text>
+    <text class="nlabel" x="190" y="126" text-anchor="middle">ecma</text>
+    <text class="nsub" x="190" y="140" text-anchor="middle">jan 26</text>
+    <text class="nlabel" x="320" y="130" text-anchor="middle">goodai-base</text>
+    <text class="nsub" x="320" y="144" text-anchor="middle">feb 26</text>
+    <text class="nlabel" x="440" y="200" text-anchor="middle">helyx</text>
+    <text class="nsub" x="440" y="186" text-anchor="middle">apr 26</text>
+    <text class="nlabel" x="505" y="30" text-anchor="middle">keryx</text>
+    <text class="nsub" x="505" y="16" text-anchor="middle">jul 26</text></svg>
+    </div>
+    <div class="glass card mem">
+      <div class="k">lesson</div>
+      <p><span lang-en>Retrieval is not behaviour. An agent that can look a rule up still does not follow it.</span><span lang-ru>Извлечение — не поведение. Агент, умеющий найти правило, всё ещё ему не следует.</span></p>
+      <div class="k" style="margin-top:22px">constraint</div>
+      <p><span lang-en>An agent may not end a turn by asserting it is done. Completion is gated on evidence.</span><span lang-ru>Агент не может закончить ход, заявив, что он закончил. Завершение открывается доказательством.</span></p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================== C ============================== -->
+<div class="caption">
+  <span class="tag">Direction C</span>
+  <h2><span lang-en>Specification</span><span lang-ru>Спецификация</span></h2>
+  <p>
+    <span lang-en>The page is shaped like the artifact it serves: a numbered technical document with an index rail, serif prose for argument and mono for data. The machine-readable claim becomes literal — the human page and <code>index.md</code> are the same document in two renderings.</span>
+    <span lang-ru>Страница имеет форму того артефакта, который отдаёт: нумерованный технический документ с рейкой-оглавлением, антиква для рассуждения и моноширинный для данных. Заявка на машиночитаемость становится буквальной — страница для человека и <code>index.md</code> суть один документ в двух отрисовках.</span>
+  </p>
+</div>
+<section class="frame demo" id="c"><div class="wrap"><div class="doc">
+  <nav>
+    <div class="h">index.md</div>
+    <a href="#" class="on">00 · abstract</a>
+    <a href="#">01 · trajectory</a>
+    <a href="#">02 · memory</a>
+    <a href="#">03 · health</a>
+    <a href="#">04 · interface</a>
+    <div class="h">machine</div>
+    <a href="#">metaproject/index.md</a>
+    <a href="#">llms.txt</a>
+    <a href="#">profile.json</a>
+  </nav>
+  <div>
+    <div class="num">§ 00 — ABSTRACT</div>
+    <h3><span lang-en>This is not a résumé. It is context.</span><span lang-ru>Это не резюме. Это контекст.</span></h3>
+    <p class="lede">
+      <span lang-en>Five attempts at one problem: what an AI agent is allowed to know about your repository. The document below is served to humans as this page and to agents as Markdown at the path in the rail. Neither is a summary of the other.</span>
+      <span lang-ru>Пять подходов к одной задаче: что ИИ-агенту вообще позволено знать о твоём репозитории. Документ ниже отдаётся человеку как эта страница, а агенту — как Markdown по пути из рейки. Ни одно не является пересказом другого.</span>
+    </p>
+    <div class="cmdbox cmd"><small lang-en>machine-readable</small><small lang-ru>машиночитаемо</small>curl -s https://mrciphersmith.com/metaproject/index.md</div>
+    <table>
+      <tr><th lang-en>signal</th><th lang-ru>показатель</th><th lang-en>value</th><th lang-ru>значение</th><th lang-en>source</th><th lang-ru>источник</th></tr>
+      <tr><td>commits</td><td><b>2 039</b></td><td>github rest v3</td></tr>
+      <tr><td>releases</td><td><b>120</b></td><td>github rest v3</td></tr>
+      <tr><td>npm versions</td><td><b>68</b></td><td>registry.npmjs.org</td></tr>
+      <tr><td>stars</td><td><b>1</b></td><td>github rest v3</td></tr>
+    </table>
+    <div style="margin-top:30px">
+      <div class="num">§ 01 — TRAJECTORY</div>
+      <svg viewBox="0 0 640 210" width="100%" style="margin-top:12px" role="img" aria-label="trajectory graph"><path class="edge" d="M96 78 H150"/>
+    <path class="edge" d="M226 78 H280"/>
+    <path class="edge edge-hot" d="M356 78 H430"/>
+    <path class="edge" d="M330 96 C330 150 360 158 400 158"/>
+    <path class="edge edge-hot" d="M476 158 C512 158 505 100 505 96"/>
+    <circle class="node" cx="60" cy="78" r="26"/>
+    <circle class="node" cx="190" cy="78" r="26"/>
+    <circle class="node" cx="320" cy="78" r="30"/>
+    <circle class="node" cx="440" cy="158" r="26"/>
+    <circle class="node-hot" cx="505" cy="78" r="34"/>
+    <text class="nlabel" x="60" y="126" text-anchor="middle">goodocs</text>
+    <text class="nsub" x="60" y="140" text-anchor="middle">nov 25</text>
+    <text class="nlabel" x="190" y="126" text-anchor="middle">ecma</text>
+    <text class="nsub" x="190" y="140" text-anchor="middle">jan 26</text>
+    <text class="nlabel" x="320" y="130" text-anchor="middle">goodai-base</text>
+    <text class="nsub" x="320" y="144" text-anchor="middle">feb 26</text>
+    <text class="nlabel" x="440" y="200" text-anchor="middle">helyx</text>
+    <text class="nsub" x="440" y="186" text-anchor="middle">apr 26</text>
+    <text class="nlabel" x="505" y="30" text-anchor="middle">keryx</text>
+    <text class="nsub" x="505" y="16" text-anchor="middle">jul 26</text></svg>
+    </div>
+    <div class="mem">
+      <div class="k">§ 02 — memory · lesson</div>
+      <p><span lang-en>Retrieval is not behaviour. An agent that can look a rule up still does not follow it.</span><span lang-ru>Извлечение — не поведение. Агент, умеющий найти правило, всё ещё ему не следует.</span></p>
+    </div>
+  </div>
+</div></div></section>
+
+
+
+<script>
+  const root = document.documentElement;
+  document.getElementById('themeSeg').addEventListener('click', e => {
+    const v = e.target.dataset.themeSet; if (!v) return;
+    root.dataset.theme = v;
+    for (const b of e.currentTarget.children) b.setAttribute('aria-pressed', String(b.dataset.themeSet === v));
+  });
+  document.getElementById('langSeg').addEventListener('click', e => {
+    const v = e.target.dataset.langSet; if (!v) return;
+    root.dataset.lang = v; root.lang = v;
+    for (const b of e.currentTarget.children) b.setAttribute('aria-pressed', String(b.dataset.langSet === v));
+  });
+</script>
+</body>
+</html>

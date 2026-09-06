@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMNESIA — motion prototype</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:14px/1.6 ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    transition:background .4s,color .4s}
+  :root{--bg:#07080a;--fg:#e4e9ed;--muted:#6c757e;--line:#181c22;--panel:#0c0e12;
+        --agent:#6fa8ff;--mem:#5fe0a4}
+  html[data-theme="light"]{--bg:#f6f6f3;--fg:#14171a;--muted:#6a7178;--line:#e1e1da;--panel:#fff;
+        --agent:#1f5fc4;--mem:#0a7f52}
+  [lang-ru]{display:none}
+  html[data-lang="ru"] [lang-en]{display:none}
+  html[data-lang="ru"] [lang-ru]{display:revert}
+
+  .bar{display:flex;gap:9px;align-items:center;padding:14px 24px;border-bottom:1px solid var(--line)}
+  .bar .t{margin-right:auto;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  button{appearance:none;cursor:pointer;font:500 11.5px/1 ui-monospace,monospace;
+    border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:7px;padding:9px 13px}
+  .seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--panel)}
+  .seg button{border:0;border-radius:0;color:var(--muted)}
+  .seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+  #reset{border-color:var(--agent);color:var(--agent)}
+  #wipe{border-color:var(--line);color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:1.35fr 1fr;min-height:calc(100svh - 52px)}
+  .col{padding:30px 30px 40px}
+  .col + .col{border-left:1px solid var(--line);background:var(--panel)}
+  .hd{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .hd b{font-weight:400}
+  #agentHd b{color:var(--agent)} #memHd b{color:var(--mem)}
+
+  #say{font-size:clamp(17px,2.3vw,23px);line-height:1.4;letter-spacing:-.015em;margin:22px 0 0;
+       min-height:4.2em;max-width:44ch}
+  #say .cur{display:inline-block;width:.55em;height:1.02em;background:var(--agent);
+    vertical-align:-.15em;animation:bl 1.05s steps(1) infinite}
+  @keyframes bl{50%{opacity:0}}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px;max-width:56ch}
+  .chips button{color:var(--muted);padding:10px 14px;transition:all .18s}
+  .chips button:hover{color:var(--fg);border-color:var(--agent)}
+  .chips button[data-used="1"]{opacity:.4}
+
+  #memList{margin-top:22px;display:flex;flex-direction:column;gap:1px}
+  .m{padding:11px 13px;background:var(--bg);border:1px solid var(--line);border-radius:6px;
+     animation:wr .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes wr{from{opacity:0;transform:translateX(14px);border-color:var(--mem)}}
+  .m .k{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mem)}
+  .m .v{font-size:12.5px;color:var(--fg);margin-top:6px;line-height:1.5}
+  .m .ts{font-size:10px;color:var(--muted);margin-top:6px;opacity:.75}
+  #memEmpty{color:var(--muted);font-size:12.5px;margin-top:22px;max-width:40ch}
+  .punch{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:12.5px;max-width:42ch}
+  .punch b{color:var(--mem);font-weight:400}
+  .count{font-size:26px;letter-spacing:-.02em;color:var(--mem);margin-top:4px}
+
+  @media (max-width:860px){ .grid{grid-template-columns:1fr}
+    .col + .col{border-left:0;border-top:1px solid var(--line)} }
+  @media (prefers-reduced-motion:reduce){ .m{animation:none} #say .cur{animation:none} }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="t">amnesia — motion prototype</span>
+  <button id="reset"><span lang-en>↻ new session</span><span lang-ru>↻ новая сессия</span></button>
+  <button id="wipe"><span lang-en>wipe memory</span><span lang-ru>стереть память</span></button>
+  <div class="seg" data-seg="theme">
+    <button data-v="dark" aria-pressed="true">dark</button>
+    <button data-v="light" aria-pressed="false">light</button>
+  </div>
+  <div class="seg" data-seg="lang">
+    <button data-v="en" aria-pressed="true">EN</button>
+    <button data-v="ru" aria-pressed="false">RU</button>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="col">
+    <div class="hd" id="agentHd">
+      <span lang-en>the agent</span><span lang-ru>агент</span> · <b id="sid">—</b> ·
+      <span lang-en>ephemeral</span><span lang-ru>эфемерен</span>
+    </div>
+    <p id="say"></p>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="col">
+    <div class="hd" id="memHd">
+      <span lang-en>project memory</span><span lang-ru>память проекта</span> · <b>.metaproject/memory/</b> ·
+      <span lang-en>durable</span><span lang-ru>долговечна</span>
+    </div>
+    <div class="count"><span id="memCount">0</span> <span style="font-size:12px;color:var(--muted)"
+      ><span lang-en>entries</span><span lang-ru>записей</span></span></div>
+    <div id="memEmpty">
+      <span lang-en>Empty. Ask the agent something — it answers, then forgets. This panel does not.</span>
+      <span lang-ru>Пусто. Спроси агента о чём-нибудь — он ответит и забудет. Эта панель — нет.</span>
+    </div>
+    <div id="memList"></div>
+    <div class="punch">
+      <span lang-en>Reload the page, or hit <b>new session</b>. The agent comes back a stranger. Everything on this side survives — because it was written down, not held in a head.</span>
+      <span lang-ru>Перезагрузи страницу или нажми <b>новую сессию</b>. Агент вернётся незнакомцем. Всё на этой стороне переживёт его — потому что было записано, а не удержано в голове.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const root = document.documentElement;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const L = () => root.dataset.lang;
+const $ = id => document.getElementById(id);
+
+const HELLO = [
+ {en:'Session #§. I am new here. I have no memory of you, and none of this repository.',
+  ru:'Сессия #§. Я здесь впервые. Я не помню ни тебя, ни этот репозиторий.'},
+ {en:'Session #§ starting cold. Whatever the last session learned, it took with it.',
+  ru:'Сессия #§ стартует холодной. Что бы ни узнала прошлая — она унесла это с собой.'},
+ {en:'Session #§. Fresh context window. Ask me something and I will forget it by the next one.',
+  ru:'Сессия #§. Чистое окно контекста. Спроси что-нибудь — к следующей сессии я это забуду.'},
+];
+
+const QA = [
+ {q:{en:'what do you build?',ru:'что ты строишь?'},
+  a:{en:'Context for AI agents. Five times over, each attempt one layer deeper: documentation, then standards, then procedure, then a control plane — and finally the repository itself.',
+     ru:'Контекст для ИИ-агентов. Пять раз подряд, каждая попытка на слой глубже: документация, потом стандарты, потом процедура, потом пульт — и наконец сам репозиторий.'},
+  m:{k:{en:'lesson',ru:'урок'},
+     v:{en:'The subject never changed. Only the depth at which it was attacked.',
+        ru:'Тема не менялась ни разу. Менялась только глубина захода.'}}},
+ {q:{en:'why keryx?',ru:'почему keryx?'},
+  a:{en:'Because every agent starts a task by re-deriving what the repository already knows, and the answers land in scratchpads and CI logs that never agree with each other. keryx materialises them into the repo — Markdown and JSON, versioned with the code, readable in a diff, shared by every agent and every teammate.',
+     ru:'Потому что каждый агент начинает задачу с того, что заново выводит уже известное репозиторию, а ответы оседают в блокнотах и логах CI, которые никогда не сходятся между собой. keryx материализует их в репозиторий — Markdown и JSON, версионируется с кодом, читается в диффе, общее для всех агентов и всей команды.'},
+  m:{k:{en:'decision',ru:'решение'},
+     v:{en:'Context lives in the repository, in the diff. Not in a service, not in a head.',
+        ru:'Контекст живёт в репозитории, в диффе. Не в сервисе и не в голове.'}}},
+ {q:{en:'show me a failure',ru:'покажи провал'},
+  a:{en:'Two MCP servers, built fourteen months apart, both aimed at the wrong layer. I stopped believing that retrieval changes behaviour only after building it twice. That is an expensive way to learn something, and the only way it stuck.',
+     ru:'Два MCP-сервера, построенные с разницей в четырнадцать месяцев, оба нацеленные не в тот слой. Я перестал верить, что извлечение меняет поведение, только собрав его дважды. Дорогой способ научиться — и единственный, который сработал.'},
+  m:{k:{en:'known mistake',ru:'известная ошибка'},
+     v:{en:'Retrieval is not behaviour. Do not answer a conventions problem with an index.',
+        ru:'Извлечение — не поведение. Не отвечай на проблему конвенций индексом.'}}},
+ {q:{en:'how fast do you ship?',ru:'как быстро ты выпускаешь?'},
+  a:{en:'On keryx: 1,133 commits and 68 npm versions in two months. On helyx: 775 commits. Roughly eighteen commits a day, sustained. Every number here came out of the GitHub and npm APIs, not out of me.',
+     ru:'На keryx: 1133 коммита и 68 версий npm за два месяца. На helyx: 775 коммитов. Примерно восемнадцать коммитов в день, без пауз. Каждое число здесь пришло из API GitHub и npm, а не из меня.'},
+  m:{k:{en:'constraint',ru:'ограничение'},
+     v:{en:'A number without a source is a claim. Claims do not go on the page.',
+        ru:'Число без источника — заявление. Заявления на страницу не попадают.'}}},
+ {q:{en:'what do you refuse to do?',ru:'чего ты не делаешь принципиально?'},
+  a:{en:'Let an agent end a turn by asserting it is done — completion is gated on evidence. And vendor lock-in: the loop runs on Anthropic, on Ollama, or on any OpenAI-compatible gateway, and the core stays deterministic, local and offline.',
+     ru:'Позволять агенту закончить ход, заявив, что он закончил — завершение открывается доказательством. И вендор-лок: цикл работает на Anthropic, на Ollama или на любом OpenAI-совместимом шлюзе, а ядро остаётся детерминированным, локальным и офлайновым.'},
+  m:{k:{en:'constraint',ru:'ограничение'},
+     v:{en:'The agent is ephemeral. The project brain is durable. Build for the second one.',
+        ru:'Агент эфемерен. Мозг проекта долговечен. Строй под второе.'}}},
+];
+
+/* ---------- durable side ---------- */
+const K = 'amnesia.memory';
+let mem = [];
+try { mem = JSON.parse(localStorage.getItem(K) || '[]'); } catch {}
+const save = () => { try { localStorage.setItem(K, JSON.stringify(mem.slice(-24))); } catch {} };
+
+function renderMem(animateLast) {
+  const list = $('memList');
+  list.textContent = '';
+  $('memEmpty').style.display = mem.length ? 'none' : '';
+  $('memCount').textContent = mem.length;
+  mem.slice().reverse().forEach((e, i) => {
+    const d = document.createElement('div');
+    d.className = 'm';
+    if (!(animateLast && i === 0)) d.style.animation = 'none';
+    d.innerHTML = `<div class="k">${e.k[L()] ?? e.k.en}</div>
+      <div class="v">${e.v[L()] ?? e.v.en}</div>
+      <div class="ts">${new Date(e.at).toLocaleString(L() === 'ru' ? 'ru' : 'en')}</div>`;
+    list.appendChild(d);
+  });
+}
+function remember(entry) {
+  mem.push({...entry, at: Date.now()});
+  save(); renderMem(true);
+}
+
+/* ---------- ephemeral side ---------- */
+let sid = '', typing = null;
+function type(text) {
+  const el = $('say');
+  clearInterval(typing);
+  if (reduce) { el.innerHTML = text + '<span class="cur"></span>'; return; }
+  let i = 0;
+  el.innerHTML = '<span class="cur"></span>';
+  typing = setInterval(() => {
+    i += 2;
+    el.innerHTML = text.slice(0, i).replace(/</g, '&lt;') + '<span class="cur"></span>';
+    if (i >= text.length) { clearInterval(typing); el.innerHTML = text + '<span class="cur"></span>'; }
+  }, 16);
+}
+function newSession() {
+  sid = Math.random().toString(16).slice(2, 6);
+  $('sid').textContent = '#' + sid;
+  const h = HELLO[Math.floor(Math.random() * HELLO.length)];
+  type(h[L()].replace('§', sid));
+  for (const b of $('chips').children) b.dataset.used = '0';
+}
+function buildChips() {
+  const c = $('chips'); c.textContent = '';
+  QA.forEach((item, i) => {
+    const b = document.createElement('button');
+    b.textContent = item.q[L()];
+    b.dataset.used = '0';
+    b.addEventListener('click', () => {
+      b.dataset.used = '1';
+      type(item.a[L()]);
+      remember(item.m);
+    });
+    c.appendChild(b);
+  });
+}
+
+$('reset').addEventListener('click', newSession);
+$('wipe').addEventListener('click', () => { mem = []; save(); renderMem(false); });
+for (const seg of document.querySelectorAll('[data-seg]')) seg.addEventListener('click', e => {
+  const v = e.target.dataset.v; if (!v) return;
+  root.dataset[seg.dataset.seg] = v;
+  if (seg.dataset.seg === 'lang') { root.lang = v; buildChips(); renderMem(false); newSession(); }
+  for (const b of seg.children) b.setAttribute('aria-pressed', String(b.dataset.v === v));
+});
+
+/* a visit is itself a fact worth keeping */
+if (mem.length) remember({k:{en:'visit',ru:'визит'},
+  v:{en:'The visitor came back. The agent has no idea.', ru:'Посетитель вернулся. Агент об этом не догадывается.'}});
+buildChips(); renderMem(false); newSession();
+</script>
+</body>
+</html>

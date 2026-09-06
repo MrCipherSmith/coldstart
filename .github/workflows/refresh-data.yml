@@ -1,0 +1,41 @@
+# Refreshes data/profile.json from the public GitHub and npm APIs.
+#
+# The snapshot is committed, so a build never depends on a network call and the
+# numbers on the page are reproducible from the repository alone. This job just
+# keeps the snapshot from going stale; the commit it makes triggers the Pages build.
+name: refresh profile data
+
+on:
+  schedule:
+    - cron: "17 4 * * *"      # nightly, 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Fetch profile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun run scripts/fetch-profile.ts
+
+      - name: Commit if the numbers moved
+        run: |
+          if git diff --quiet -- data/profile.json; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/profile.json
+          git commit -m "chore(data): refresh profile snapshot"
+          git push
