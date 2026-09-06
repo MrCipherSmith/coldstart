@@ -238,7 +238,12 @@ html[data-ctx="off"] #offnote { opacity: 1; }
   section { padding: 64px 20px 64px 12px; }
   section.split .inner, .inner { max-width: 100%; }
 }
-@media (max-height: 640px) { html { scroll-snap-type: y proximity; } }
+/* Mandatory snapping only holds while a layer still fits on the screen. Once the
+   columns stack, or the window is short, a section grows past the viewport and
+   mandatory snapping would fight the reader. */
+@media (max-width: 1180px), (max-height: 640px) {
+  html { scroll-snap-type: y proximity; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; scroll-snap-type: none; }
   .r, .shot { transition: none; opacity: 1; transform: none; filter: none; }

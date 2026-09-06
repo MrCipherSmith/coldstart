@@ -65,7 +65,11 @@ export function Descent() {
           }
         }
       },
-      { threshold: 0.55, rootMargin: "-8% 0px -8% 0px" },
+      // A ratio threshold is a trap here: it measures the visible fraction of the
+      // *section*, so a layer taller than the viewport can never reach it and
+      // would stay hidden for good. Fire on any overlap with a band across the
+      // middle of the screen instead, which holds at any section height.
+      { threshold: 0, rootMargin: "-30% 0px -30% 0px" },
     );
     for (const s of sections) io.observe(s);
 
