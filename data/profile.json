@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T08:54:34.012Z",
+  "generatedAt": "2026-09-09T08:59:56.397Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -8,7 +8,7 @@
     "avatarUrl": "https://avatars.githubusercontent.com/u/200531777?v=4",
     "url": "https://github.com/MrCipherSmith",
     "createdAt": "2025-02-23T22:31:06Z",
-    "publicRepos": 13,
+    "publicRepos": 14,
     "followers": 0
   },
   "repos": [
@@ -22,17 +22,38 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-08T06:39:58Z",
+      "pushedAt": "2026-09-09T08:56:26Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 30607,
-      "commits": 1136,
-      "releases": 72,
+      "sizeKb": 27026,
+      "commits": 1144,
+      "releases": 76,
       "languages": {
-        "TypeScript": 14085387,
+        "TypeScript": 16356013,
         "HTML": 566353,
         "Shell": 32784,
         "JavaScript": 8733
+      }
+    },
+    {
+      "name": "roomyx",
+      "description": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-09T05:47:08Z",
+      "pushedAt": "2026-09-09T08:48:54Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/roomyx",
+      "sizeKb": 127,
+      "commits": 21,
+      "releases": 3,
+      "languages": {
+        "TypeScript": 103839,
+        "JavaScript": 442
       }
     },
     {
@@ -287,24 +308,24 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.80",
-      "versions": 68,
+      "latest": "0.2.84",
+      "versions": 72,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-05T13:55:58.220Z"
+      "lastPublish": "2026-09-09T08:58:50.038Z"
     }
   ],
   "totals": {
-    "ownRepos": 8,
+    "ownRepos": 9,
     "forks": 4,
-    "commits": 2042,
-    "releases": 120,
+    "commits": 2071,
+    "releases": 127,
     "stars": 1,
-    "npmVersions": 68,
+    "npmVersions": 72,
     "languages": {
-      "TypeScript": 18183849,
+      "TypeScript": 20558314,
       "HTML": 764220,
       "Shell": 71549,
-      "JavaScript": 57912,
+      "JavaScript": 58354,
       "Dockerfile": 8169,
       "CSS": 6351,
       "Ruby": 1610,
