@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T08:58:57.162Z",
+  "generatedAt": "2026-09-11T08:57:28.325Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,14 +22,14 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-10T08:49:06Z",
+      "pushedAt": "2026-09-11T08:56:58Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 28813,
-      "commits": 1168,
-      "releases": 76,
+      "sizeKb": 29712,
+      "commits": 1181,
+      "releases": 79,
       "languages": {
-        "TypeScript": 16504647,
+        "TypeScript": 17243564,
         "HTML": 601424,
         "Shell": 32784,
         "JavaScript": 8733
@@ -45,14 +45,14 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-10T07:42:36Z",
+      "pushedAt": "2026-09-11T08:25:33Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 3456,
-      "commits": 80,
-      "releases": 12,
+      "sizeKb": 4354,
+      "commits": 116,
+      "releases": 27,
       "languages": {
-        "TypeScript": 476541,
+        "TypeScript": 683856,
         "HTML": 40394,
         "JavaScript": 3626
       }
@@ -309,21 +309,21 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.84",
-      "versions": 72,
+      "latest": "0.2.88",
+      "versions": 73,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-09T08:58:50.038Z"
+      "lastPublish": "2026-09-10T13:02:14.097Z"
     }
   ],
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2154,
-    "releases": 136,
+    "commits": 2203,
+    "releases": 154,
     "stars": 1,
-    "npmVersions": 72,
+    "npmVersions": 73,
     "languages": {
-      "TypeScript": 21079650,
+      "TypeScript": 22025882,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
