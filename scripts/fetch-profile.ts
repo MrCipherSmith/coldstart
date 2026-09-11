@@ -17,7 +17,7 @@ const LOGIN = "MrCipherSmith";
  * for a number the page never shows.
  */
 const SELF = "coldstart";
-const NPM_PACKAGES = ["@mrciphersmith/keryx"];
+const NPM_PACKAGES = ["@mrciphersmith/keryx", "@mrciphersmith/roomyx"];
 const OUT = new URL("../data/profile.json", import.meta.url);
 
 const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
@@ -88,11 +88,69 @@ type GhRepo = {
   size: number;
 };
 
+/** The latest published GitHub release's tag, or null when there is none. */
+async function latestRelease(repo: string): Promise<string | null> {
+  const res = await fetch(
+    `https://api.github.com/repos/${LOGIN}/${repo}/releases/latest`,
+    {
+      headers: {
+        accept: "application/vnd.github+json",
+        "user-agent": `${LOGIN}-profile-builder`,
+        ...(token ? { authorization: `Bearer ${token}` } : {}),
+      },
+    },
+  );
+  if (!res.ok) return null;
+  const { tag_name } = (await res.json()) as { tag_name?: string };
+  return tag_name ?? null;
+}
+
+type Version = { value: string; source: "npm" | "release" };
+
+/**
+ * What the site shows beside a project's name. npm first, because that is the
+ * version a person actually gets when they install it; the GitHub release
+ * otherwise; nothing at all rather than a guess.
+ */
+async function versionFor(
+  repo: string,
+  npm: { name: string; latest: string }[],
+): Promise<Version | null> {
+  const pkg = npm.find((p) => p.name === `@mrciphersmith/${repo}`);
+  if (pkg) return { value: pkg.latest, source: "npm" };
+  const tag = await latestRelease(repo);
+  return tag ? { value: tag.replace(/^v/, ""), source: "release" } : null;
+}
+
 async function main() {
   const user = await gh<Record<string, unknown>>(`users/${LOGIN}`);
   const rawRepos = await gh<GhRepo[]>(
     `users/${LOGIN}/repos?per_page=100&sort=updated`,
   );
+
+  const npm = [];
+  for (const pkg of NPM_PACKAGES) {
+    const res = await fetch(`https://registry.npmjs.org/${pkg}`);
+    if (!res.ok) continue;
+    const d = (await res.json()) as {
+      "dist-tags": Record<string, string>;
+      versions: Record<string, unknown>;
+      time: Record<string, string>;
+      description?: string;
+    };
+    const stamps = Object.entries(d.time)
+      .filter(([k]) => k !== "created" && k !== "modified")
+      .map(([, v]) => v)
+      .sort();
+    npm.push({
+      name: pkg,
+      description: d.description ?? null,
+      latest: d["dist-tags"].latest,
+      versions: Object.keys(d.versions).length,
+      firstPublish: stamps[0] ?? d.time.created,
+      lastPublish: stamps[stamps.length - 1] ?? d.time.modified,
+    });
+  }
 
   const repos = [];
   for (const r of rawRepos) {
@@ -116,31 +174,8 @@ async function main() {
       sizeKb: r.size,
       commits: r.fork ? 0 : await commitCount(r.name),
       releases: r.fork ? 0 : await releaseCount(r.name),
+      version: r.fork ? null : await versionFor(r.name, npm),
       languages,
-    });
-  }
-
-  const npm = [];
-  for (const pkg of NPM_PACKAGES) {
-    const res = await fetch(`https://registry.npmjs.org/${pkg}`);
-    if (!res.ok) continue;
-    const d = (await res.json()) as {
-      "dist-tags": Record<string, string>;
-      versions: Record<string, unknown>;
-      time: Record<string, string>;
-      description?: string;
-    };
-    const stamps = Object.entries(d.time)
-      .filter(([k]) => k !== "created" && k !== "modified")
-      .map(([, v]) => v)
-      .sort();
-    npm.push({
-      name: pkg,
-      description: d.description ?? null,
-      latest: d["dist-tags"].latest,
-      versions: Object.keys(d.versions).length,
-      firstPublish: stamps[0] ?? d.time.created,
-      lastPublish: stamps[stamps.length - 1] ?? d.time.modified,
     });
   }
 

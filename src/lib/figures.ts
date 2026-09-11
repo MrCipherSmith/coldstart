@@ -24,9 +24,19 @@ const num = (n: number): TX => ({
 
 const plain = (s: string): TX => ({ en: s, ru: s });
 
+const pkg = (name: string) => {
+  const found = profile.npm.find((p) => p.name === name);
+  if (!found) throw new Error(`profile.json has no npm package "${name}"`);
+  return found;
+};
+
 const keryx = repo("keryx");
 const helyx = repo("helyx");
-const npm = profile.npm[0];
+const roomyx = repo("roomyx");
+// By name, not by position: the list grew, and npm[0] would have kept
+// working by accident right up until the order changed.
+const npm = pkg("@mrciphersmith/keryx");
+const roomyxNpm = pkg("@mrciphersmith/roomyx");
 
 const DATE: TX = {
   en: new Date(profile.generatedAt).toLocaleDateString("en-GB", {
@@ -68,6 +78,9 @@ export const FIGURES: Record<string, TX> = {
   "helyx.commits": num(helyx.commits),
   "npm.versions": num(npm.versions),
   "npm.latest": plain(npm.latest),
+  "roomyx.commits": num(roomyx.commits),
+  "roomyx.versions": num(roomyxNpm.versions),
+  "roomyx.latest": plain(roomyxNpm.latest),
   "totals.commits": num(profile.totals.commits),
   "read.on": DATE,
 };
@@ -82,3 +95,19 @@ export function fill(v: TX): TX {
     });
   return { en: one(v.en, "en"), ru: one(v.ru, "ru") };
 }
+
+export type Version = { value: string; source: "npm" | "release" };
+
+/**
+ * The version shown beside a project's name. npm when the package is
+ * published there — that is what a person actually installs — otherwise the
+ * latest GitHub release. Null when the project has neither, and then nothing is
+ * shown rather than a guess.
+ */
+export function versionOf(project: string): Version | null {
+  const found = profile.repos.find((r) => r.name === project) as
+    | { version?: Version | null }
+    | undefined;
+  return found?.version ?? null;
+}
+

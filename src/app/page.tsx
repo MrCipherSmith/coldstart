@@ -4,7 +4,7 @@ import { Illustration } from "@/components/Illustration";
 import { InstallLine } from "@/components/InstallLine";
 import { MemoryCard } from "@/components/MemoryCard";
 import { T } from "@/components/T";
-import { fill } from "@/lib/figures";
+import { fill, versionOf } from "@/lib/figures";
 import { Toolbar } from "@/components/Toolbar";
 import { COLD_OPEN, LAYERS, PROVENANCE } from "@/content/layers";
 
@@ -87,7 +87,12 @@ export default function Page() {
             <div className="inner">
               <div className="depth r">
                 <T v={layer.kicker} />
-                {layer.project && <span className="name">{layer.project}</span>}
+                {layer.project && (
+                  <span className="name">
+                    {layer.project}
+                    <Ver project={layer.project} />
+                  </span>
+                )}
               </div>
 
               <Decode v={layer.heading} className="r" />
@@ -103,6 +108,12 @@ export default function Page() {
                   </em>
                   <T v={layer.wall.text} />
                 </div>
+              )}
+
+              {layer.source && (
+                <a className="source-link r" href={layer.source.href} target="_blank" rel="noopener">
+                  <T v={layer.source.label} /> →
+                </a>
               )}
 
             </div>
@@ -222,3 +233,18 @@ export default function Page() {
     </>
   );
 }
+
+/** The current version beside a project's name, read from the nightly snapshot. */
+function Ver({ project }: { project: string }) {
+  const v = versionOf(project);
+  if (!v) return null;
+  return (
+    <span
+      className="ver"
+      title={v.source === "npm" ? "latest on npm" : "latest GitHub release"}
+    >
+      v{v.value}
+    </span>
+  );
+}
+

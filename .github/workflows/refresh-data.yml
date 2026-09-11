@@ -43,6 +43,12 @@ jobs:
           bunx playwright install --with-deps chromium
           git clone --depth 1 https://github.com/MrCipherSmith/keryx.git "$RUNNER_TEMP/keryx"
           cd "$RUNNER_TEMP/keryx"
+          # health reads eslint and tsc from the project's own dependencies.
+          # Without them it reports INCOMPLETE, the dashboard shows a warning
+          # that belongs to this runner rather than to keryx, and the header
+          # has no score to read — so the shot fails and the site keeps a stale
+          # picture. Measured at under a second for 221 packages.
+          bun install --frozen-lockfile
           bunx --bun @mrciphersmith/keryx gdgraph build
           bunx --bun @mrciphersmith/keryx health run
           bunx --bun @mrciphersmith/keryx dashboard build

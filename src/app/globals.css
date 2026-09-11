@@ -117,6 +117,12 @@ section.split .inner { flex: 1 1 420px; max-width: 520px; }
 section.seen .name::before { animation: nb 2.8s ease-in-out infinite; }
 @keyframes nb { 50% { opacity: .35; } }
 html[data-ctx="off"] .name::before { animation: none; background: var(--muted); box-shadow: none; }
+/* the version rides beside the name: small, quiet, and only ever real */
+.name .ver {
+  margin-left: 12px; font-size: 11px; letter-spacing: .06em; vertical-align: 3px;
+  color: var(--accent); border: 1px solid var(--line); border-radius: 99px;
+  padding: 3px 9px; white-space: nowrap;
+}
 
 h2 { font-weight: 400; font-size: clamp(26px, 4.2vw, 46px); line-height: 1.14; letter-spacing: -.025em; margin: 16px 0 0; }
 .say { color: var(--muted); margin: 20px 0 0; max-width: 62ch; font-size: 14.5px; }
@@ -124,6 +130,10 @@ h2 { font-weight: 400; font-size: clamp(26px, 4.2vw, 46px); line-height: 1.14; l
 .say.source { font-size: 12.5px; padding-left: 14px; border-left: 1px solid var(--line); }
 .wall { margin-top: 26px; padding-left: 16px; border-left: 2px solid var(--warn); color: var(--fg); font-size: 15px; max-width: 56ch; }
 .wall em { font-style: normal; color: var(--warn); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+.source-link { display: inline-block; margin-top: 18px; font-size: 12px; letter-spacing: .06em;
+  color: var(--warn); text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--warn) 40%, transparent); }
+.source-link:hover { border-bottom-color: var(--warn); }
 
 /* ---- reveal ---- */
 .r { opacity: 0; transform: translateY(14px); filter: blur(6px);

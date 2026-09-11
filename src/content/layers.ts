@@ -30,6 +30,8 @@ export type Layer = {
   body: TX;
   wall?: { label: TX; text: TX };
   shots?: Shot[];
+  /** Where a claim in the layer can be checked. Pinned to a commit, not a branch. */
+  source?: { href: string; label: TX };
   /** Layers with nothing to screenshot get a diagram that makes the argument. */
   figure?: { kind: IllustrationKind; caption: TX };
   /** Part of the one continuous body of rock. */
@@ -283,10 +285,52 @@ export const LAYERS: Layer[] = [
     ],
   },
   {
+    id: "room",
+    depth: { en: "2026-09", ru: "2026-09" },
+    facts: 78,
+    kicker: { en: "layer 06 · the room", ru: "слой 06 · комната" },
+    project: "roomyx",
+    heading: {
+      en: "A room does not get to say it agreed.",
+      ru: "Комната не имеет права сказать, что договорилась.",
+    },
+    body: {
+      en: "Several persona agents — founders, engineers, fifty interview subjects, a judging panel — argue toward a written goal contract with measurable criteria and a pass mark. Each is spawned once and kept alive, so a turn carries only what that participant has not seen yet. One dispatcher is the <b>only writer</b> of an append-only log, and the owner can veto, add a constraint, add a participant or move the goal — none of which the room can vote down. A score over the bar with someone still arguing is <b>not convergence</b>. Since 9 September: <b>{{roomyx.commits}} commits</b>, <b>{{roomyx.versions}} versions</b> on npm, latest <b>{{roomyx.latest}}</b>.",
+      ru: "Несколько агентов-персонажей — основатели, инженеры, пятьдесят интервьюируемых, жюри — спорят к письменному контракту цели с измеримыми критериями и проходным баллом. Каждый поднимается один раз и живёт всю сессию, поэтому ход несёт только то, чего участник ещё не видел. Лог только дополняется, и пишет в него <b>один диспетчер</b>, а владелец может наложить вето, добавить ограничение, участника или сдвинуть цель — и ничего из этого комната не отменит голосованием. Балл выше порога, пока кто-то ещё спорит, — <b>не согласие</b>. С 9 сентября: коммитов — <b>{{roomyx.commits}}</b>, версий в npm — <b>{{roomyx.versions}}</b>, последняя — <b>{{roomyx.latest}}</b>.",
+    },
+    wall: {
+      label: {
+        en: "the latest room was asked whether to continue at all",
+        ru: "последняя комната решала, продолжать ли вообще",
+      },
+      text: {
+        en: "Five personas on three different models reviewed 0.12.0 against one question: is roomyx worth continuing. The founder opened with “it should not continue” — and changed his vote when another participant showed his premise was wrong, not because he was outnumbered. The verdict came back five of five. On the way the room found two defects in the release it was reviewing.",
+        ru: "Пять персонажей на трёх разных моделях разбирали 0.12.0 с одним вопросом: стоит ли roomyx продолжать. Основатель начал с «это не стоит продолжать» — и сменил голос, когда другой участник показал, что его посылка неверна, а не потому, что остался в меньшинстве. Вердикт — пять из пяти. По дороге комната нашла два дефекта в релизе, который разбирала.",
+      },
+    },
+    source: {
+      // Pinned to the archiving commit: a branch link would break at merge.
+      href: "https://github.com/MrCipherSmith/roomyx/blob/2ded3d6314d403b75aeed82ee5b09ba76e399e3a/docs/roomyx/rooms/2026-09-11-review-0.12.0/transcript.md",
+      label: { en: "read the room, unedited", ru: "стенограмма комнаты, без правок" },
+    },
+    shots: [
+      {
+        src: "/shots/roomyx-filter.webp",
+        width: 1015,
+        height: 650,
+        alt: "The roomyx terminal UI with the transcript filtered to one participant, whose message argues for the keymap already shown in the footer",
+        caption: {
+          en: "<b>roomyx-client</b> · the transcript filtered to one participant — whose message argues for the keymap already printed in the footer",
+          ru: "<b>roomyx-client</b> · лента, отфильтрованная по одному участнику, — и её сообщение спорит за раскладку, которая уже напечатана в подвале",
+        },
+      },
+    ],
+  },
+  {
     id: "restraint",
     depth: { en: "—", ru: "—" },
     facts: 81,
-    kicker: { en: "layer 06 · restraint", ru: "слой 06 · сдержанность" },
+    kicker: { en: "layer 07 · restraint", ru: "слой 07 · сдержанность" },
     heading: {
       en: "Four capabilities that ship switched off.",
       ru: "Четыре возможности, выпущенные в положении «выключено».",

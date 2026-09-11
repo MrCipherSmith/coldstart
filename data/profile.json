@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T08:57:28.325Z",
+  "generatedAt": "2026-09-11T17:24:23.651Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,17 +22,57 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-11T08:56:58Z",
+      "pushedAt": "2026-09-11T15:37:59Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 29712,
-      "commits": 1181,
-      "releases": 79,
+      "sizeKb": 29480,
+      "commits": 1187,
+      "releases": 81,
+      "version": {
+        "value": "0.2.96",
+        "source": "npm"
+      },
       "languages": {
-        "TypeScript": 17243564,
+        "TypeScript": 17285874,
         "HTML": 601424,
         "Shell": 32784,
         "JavaScript": 8733
+      }
+    },
+    {
+      "name": "goodai-base",
+      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "ai-agents",
+        "automation",
+        "claude-code",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "rules",
+        "skills"
+      ],
+      "createdAt": "2026-02-27T23:43:40Z",
+      "pushedAt": "2026-09-11T14:44:30Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/goodai-base",
+      "sizeKb": 1703,
+      "commits": 107,
+      "releases": 10,
+      "version": {
+        "value": "1.16.0",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 254320,
+        "HTML": 156441,
+        "JavaScript": 32323,
+        "Shell": 9344
       }
     },
     {
@@ -48,9 +88,13 @@
       "pushedAt": "2026-09-11T08:25:33Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 4354,
+      "sizeKb": 4423,
       "commits": 116,
       "releases": 27,
+      "version": {
+        "value": "0.12.0",
+        "source": "npm"
+      },
       "languages": {
         "TypeScript": 683856,
         "HTML": 40394,
@@ -81,6 +125,10 @@
       "sizeKb": 9817,
       "commits": 775,
       "releases": 38,
+      "version": {
+        "value": "1.58.1",
+        "source": "release"
+      },
       "languages": {
         "TypeScript": 3598517,
         "HTML": 41062,
@@ -106,40 +154,9 @@
       "sizeKb": 1,
       "commits": 1,
       "releases": 0,
+      "version": null,
       "languages": {
         "Ruby": 1610
-      }
-    },
-    {
-      "name": "goodai-base",
-      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "ai-agents",
-        "automation",
-        "claude-code",
-        "cursor",
-        "developer-tools",
-        "llm",
-        "rules",
-        "skills"
-      ],
-      "createdAt": "2026-02-27T23:43:40Z",
-      "pushedAt": "2026-07-21T16:15:21Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/goodai-base",
-      "sizeKb": 1611,
-      "commits": 104,
-      "releases": 10,
-      "languages": {
-        "TypeScript": 254222,
-        "HTML": 156441,
-        "JavaScript": 32323,
-        "Shell": 9344
       }
     },
     {
@@ -158,6 +175,7 @@
       "sizeKb": 805,
       "commits": 0,
       "releases": 0,
+      "version": null,
       "languages": {}
     },
     {
@@ -176,6 +194,7 @@
       "sizeKb": 2328,
       "commits": 0,
       "releases": 0,
+      "version": null,
       "languages": {}
     },
     {
@@ -194,6 +213,7 @@
       "sizeKb": 2,
       "commits": 1,
       "releases": 0,
+      "version": null,
       "languages": {}
     },
     {
@@ -212,6 +232,7 @@
       "sizeKb": 3692,
       "commits": 14,
       "releases": 0,
+      "version": null,
       "languages": {
         "TypeScript": 33766,
         "CSS": 3079,
@@ -234,6 +255,7 @@
       "sizeKb": 70,
       "commits": 0,
       "releases": 0,
+      "version": null,
       "languages": {}
     },
     {
@@ -252,6 +274,7 @@
       "sizeKb": 9643,
       "commits": 0,
       "releases": 0,
+      "version": null,
       "languages": {}
     },
     {
@@ -270,6 +293,7 @@
       "sizeKb": 236,
       "commits": 4,
       "releases": 0,
+      "version": null,
       "languages": {
         "TypeScript": 95564,
         "Python": 11452,
@@ -296,6 +320,7 @@
       "sizeKb": 1084,
       "commits": 7,
       "releases": 0,
+      "version": null,
       "languages": {
         "TypeScript": 116393,
         "JavaScript": 12545,
@@ -309,21 +334,29 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.88",
-      "versions": 73,
+      "latest": "0.2.96",
+      "versions": 76,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-10T13:02:14.097Z"
+      "lastPublish": "2026-09-11T15:34:01.210Z"
+    },
+    {
+      "name": "@mrciphersmith/roomyx",
+      "description": "MCP server + terminal UI for startup-room: live room status, chat, per-agent modal, an installable room registry, and skill-sync.",
+      "latest": "0.12.0",
+      "versions": 27,
+      "firstPublish": "2026-09-09T07:42:07.541Z",
+      "lastPublish": "2026-09-11T08:26:34.937Z"
     }
   ],
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2203,
-    "releases": 154,
+    "commits": 2212,
+    "releases": 156,
     "stars": 1,
-    "npmVersions": 73,
+    "npmVersions": 103,
     "languages": {
-      "TypeScript": 22025882,
+      "TypeScript": 22068290,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
