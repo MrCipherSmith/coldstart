@@ -25,6 +25,13 @@ jobs:
         with:
           bun-version: latest
 
+      # keryx runs its health tools (eslint, tsc) as child processes through
+      # `node`. Pin a Node that ESLint 10 supports instead of whatever the
+      # runner image happens to carry.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - run: bun install --frozen-lockfile
 
       # ---- the repository counters -------------------------------------
@@ -49,9 +56,12 @@ jobs:
           # has no score to read — so the shot fails and the site keeps a stale
           # picture. Measured at under a second for 221 packages.
           bun install --frozen-lockfile
-          bunx --bun @mrciphersmith/keryx gdgraph build
-          bunx --bun @mrciphersmith/keryx health run
-          bunx --bun @mrciphersmith/keryx dashboard build
+          # Not `bunx --bun`: under --bun, keryx cannot read eslint's JSON on
+          # Linux and health reports INCOMPLETE; without it health passes.
+          # Reproduced in a node:22 container, 2026-09-11.
+          bunx @mrciphersmith/keryx gdgraph build
+          bunx @mrciphersmith/keryx health run
+          bunx @mrciphersmith/keryx dashboard build
           cd "$GITHUB_WORKSPACE"
           bun run scripts/shoot-dashboard.ts "$RUNNER_TEMP/keryx/.metaproject/keryx-dashboard.html"
 
