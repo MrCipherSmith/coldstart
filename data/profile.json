@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T17:24:23.651Z",
+  "generatedAt": "2026-09-11T18:14:28.491Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -12,6 +12,32 @@
     "followers": 0
   },
   "repos": [
+    {
+      "name": "roomyx",
+      "description": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-09T05:47:08Z",
+      "pushedAt": "2026-09-11T17:50:19Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/roomyx",
+      "sizeKb": 4423,
+      "commits": 117,
+      "releases": 27,
+      "version": {
+        "value": "0.12.0",
+        "source": "npm"
+      },
+      "languages": {
+        "TypeScript": 683856,
+        "HTML": 40394,
+        "JavaScript": 3626
+      }
+    },
     {
       "name": "keryx",
       "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
@@ -73,32 +99,6 @@
         "HTML": 156441,
         "JavaScript": 32323,
         "Shell": 9344
-      }
-    },
-    {
-      "name": "roomyx",
-      "description": null,
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-11T08:25:33Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 4423,
-      "commits": 116,
-      "releases": 27,
-      "version": {
-        "value": "0.12.0",
-        "source": "npm"
-      },
-      "languages": {
-        "TypeScript": 683856,
-        "HTML": 40394,
-        "JavaScript": 3626
       }
     },
     {
@@ -351,15 +351,15 @@
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2212,
+    "commits": 2213,
     "releases": 156,
     "stars": 1,
     "npmVersions": 103,
     "languages": {
       "TypeScript": 22068290,
       "HTML": 839685,
-      "Shell": 71549,
       "JavaScript": 61538,
+      "Shell": 71549,
       "Dockerfile": 8169,
       "CSS": 6351,
       "Ruby": 1610,
