@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T08:40:31.198Z",
+  "generatedAt": "2026-09-13T09:35:41.029Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,18 +22,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-12T08:35:37Z",
+      "pushedAt": "2026-09-12T20:04:32Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 30643,
-      "commits": 1194,
-      "releases": 83,
+      "sizeKb": 34833,
+      "commits": 1207,
+      "releases": 85,
       "version": {
-        "value": "0.2.97",
+        "value": "0.2.100",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 17650939,
+        "TypeScript": 18147385,
         "HTML": 601424,
         "Shell": 32784,
         "JavaScript": 8733
@@ -49,18 +49,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-11T17:50:19Z",
+      "pushedAt": "2026-09-13T06:40:58Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 4497,
-      "commits": 117,
-      "releases": 27,
+      "sizeKb": 8545,
+      "commits": 124,
+      "releases": 29,
       "version": {
-        "value": "0.12.0",
+        "value": "0.12.2",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 683856,
+        "TypeScript": 686561,
         "HTML": 40394,
         "JavaScript": 3626
       }
@@ -334,29 +334,29 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.97",
-      "versions": 77,
+      "latest": "0.2.100",
+      "versions": 80,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-11T20:20:04.475Z"
+      "lastPublish": "2026-09-12T20:12:51.833Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
       "description": "MCP server + terminal UI for startup-room: live room status, chat, per-agent modal, an installable room registry, and skill-sync.",
-      "latest": "0.12.0",
-      "versions": 27,
+      "latest": "0.12.2",
+      "versions": 29,
       "firstPublish": "2026-09-09T07:42:07.541Z",
-      "lastPublish": "2026-09-11T08:26:34.937Z"
+      "lastPublish": "2026-09-12T19:39:15.410Z"
     }
   ],
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2220,
-    "releases": 158,
+    "commits": 2240,
+    "releases": 162,
     "stars": 1,
-    "npmVersions": 104,
+    "npmVersions": 109,
     "languages": {
-      "TypeScript": 22433355,
+      "TypeScript": 22932506,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
