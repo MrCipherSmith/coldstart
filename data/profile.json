@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T09:35:41.029Z",
+  "generatedAt": "2026-09-14T09:56:30.849Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,18 +22,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-12T20:04:32Z",
+      "pushedAt": "2026-09-14T08:57:08Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 34833,
-      "commits": 1207,
-      "releases": 85,
+      "sizeKb": 35052,
+      "commits": 1209,
+      "releases": 87,
       "version": {
-        "value": "0.2.100",
+        "value": "0.2.102",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 18147385,
+        "TypeScript": 18160361,
         "HTML": 601424,
         "Shell": 32784,
         "JavaScript": 8733
@@ -41,18 +41,26 @@
     },
     {
       "name": "roomyx",
-      "description": null,
+      "description": "MCP server and terminal UI for startup-room: serves a room's append-only log as MCP tools and as a live TUI, with a registry so several rooms can run at once.",
       "language": "TypeScript",
       "stars": 0,
       "forks": 0,
       "isFork": false,
       "archived": false,
-      "topics": [],
+      "topics": [
+        "bun",
+        "cli",
+        "mcp",
+        "model-context-protocol",
+        "multi-agent",
+        "tui",
+        "typescript"
+      ],
       "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-13T06:40:58Z",
-      "homepage": null,
+      "pushedAt": "2026-09-13T12:45:30Z",
+      "homepage": "https://www.npmjs.com/package/@mrciphersmith/roomyx",
       "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 8545,
+      "sizeKb": 8244,
       "commits": 124,
       "releases": 29,
       "version": {
@@ -334,10 +342,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.100",
-      "versions": 80,
+      "latest": "0.2.102",
+      "versions": 82,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-12T20:12:51.833Z"
+      "lastPublish": "2026-09-14T09:05:42.391Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -351,12 +359,12 @@
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2240,
-    "releases": 162,
+    "commits": 2242,
+    "releases": 164,
     "stars": 1,
-    "npmVersions": 109,
+    "npmVersions": 111,
     "languages": {
-      "TypeScript": 22932506,
+      "TypeScript": 22945482,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
