@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T09:20:31.881Z",
+  "generatedAt": "2026-09-17T09:29:38.818Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -13,6 +13,43 @@
   },
   "repos": [
     {
+      "name": "helyx",
+      "description": "Helyx — Telegram-first multi-project hub for Claude Code. Multi-session MCP bot with dual-layer memory, voice transcription, web dashboard, and real-time CLI monitoring.",
+      "language": "TypeScript",
+      "stars": 1,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "ai-agent",
+        "bun",
+        "claude",
+        "claude-code",
+        "mcp",
+        "telegram-bot",
+        "typescript"
+      ],
+      "createdAt": "2026-04-03T21:54:01Z",
+      "pushedAt": "2026-09-17T09:09:54Z",
+      "homepage": "https://helyx.mrciphersmith.com",
+      "url": "https://github.com/MrCipherSmith/helyx",
+      "sizeKb": 9817,
+      "commits": 779,
+      "releases": 38,
+      "version": {
+        "value": "1.58.1",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 3642160,
+        "HTML": 41062,
+        "Shell": 23672,
+        "JavaScript": 3488,
+        "Dockerfile": 3207,
+        "CSS": 2942
+      }
+    },
+    {
       "name": "keryx",
       "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
       "language": "TypeScript",
@@ -22,18 +59,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-16T08:03:18Z",
+      "pushedAt": "2026-09-16T18:02:53Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 35425,
-      "commits": 1235,
-      "releases": 92,
+      "sizeKb": 35932,
+      "commits": 1258,
+      "releases": 97,
       "version": {
-        "value": "0.2.107",
+        "value": "0.2.112",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 18341436,
+        "TypeScript": 18514724,
         "HTML": 601424,
         "Shell": 32784,
         "JavaScript": 8733
@@ -107,43 +144,6 @@
         "HTML": 156441,
         "JavaScript": 32323,
         "Shell": 9344
-      }
-    },
-    {
-      "name": "helyx",
-      "description": "Helyx — Telegram-first multi-project hub for Claude Code. Multi-session MCP bot with dual-layer memory, voice transcription, web dashboard, and real-time CLI monitoring.",
-      "language": "TypeScript",
-      "stars": 1,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "ai-agent",
-        "bun",
-        "claude",
-        "claude-code",
-        "mcp",
-        "telegram-bot",
-        "typescript"
-      ],
-      "createdAt": "2026-04-03T21:54:01Z",
-      "pushedAt": "2026-09-04T09:07:55Z",
-      "homepage": "https://helyx.mrciphersmith.com",
-      "url": "https://github.com/MrCipherSmith/helyx",
-      "sizeKb": 9817,
-      "commits": 775,
-      "releases": 38,
-      "version": {
-        "value": "1.58.1",
-        "source": "release"
-      },
-      "languages": {
-        "TypeScript": 3598517,
-        "HTML": 41062,
-        "Shell": 23672,
-        "JavaScript": 3488,
-        "Dockerfile": 3207,
-        "CSS": 2942
       }
     },
     {
@@ -342,10 +342,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.107",
-      "versions": 85,
+      "latest": "0.2.112",
+      "versions": 90,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-16T07:24:51.277Z"
+      "lastPublish": "2026-09-16T18:12:48.980Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -359,12 +359,12 @@
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2268,
-    "releases": 169,
+    "commits": 2295,
+    "releases": 174,
     "stars": 1,
-    "npmVersions": 114,
+    "npmVersions": 119,
     "languages": {
-      "TypeScript": 23126557,
+      "TypeScript": 23343488,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
