@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T09:29:38.818Z",
+  "generatedAt": "2026-09-18T09:02:53.818Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -12,6 +12,33 @@
     "followers": 0
   },
   "repos": [
+    {
+      "name": "keryx",
+      "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-07-06T08:41:09Z",
+      "pushedAt": "2026-09-17T21:03:00Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/keryx",
+      "sizeKb": 35841,
+      "commits": 1328,
+      "releases": 100,
+      "version": {
+        "value": "0.2.115",
+        "source": "npm"
+      },
+      "languages": {
+        "TypeScript": 19090595,
+        "HTML": 601424,
+        "Shell": 32784,
+        "JavaScript": 8733
+      }
+    },
     {
       "name": "helyx",
       "description": "Helyx — Telegram-first multi-project hub for Claude Code. Multi-session MCP bot with dual-layer memory, voice transcription, web dashboard, and real-time CLI monitoring.",
@@ -30,14 +57,14 @@
         "typescript"
       ],
       "createdAt": "2026-04-03T21:54:01Z",
-      "pushedAt": "2026-09-17T09:09:54Z",
+      "pushedAt": "2026-09-17T14:39:23Z",
       "homepage": "https://helyx.mrciphersmith.com",
       "url": "https://github.com/MrCipherSmith/helyx",
-      "sizeKb": 9817,
-      "commits": 779,
-      "releases": 38,
+      "sizeKb": 10058,
+      "commits": 783,
+      "releases": 39,
       "version": {
-        "value": "1.58.1",
+        "value": "1.59.0",
         "source": "release"
       },
       "languages": {
@@ -47,33 +74,6 @@
         "JavaScript": 3488,
         "Dockerfile": 3207,
         "CSS": 2942
-      }
-    },
-    {
-      "name": "keryx",
-      "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-16T18:02:53Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 35932,
-      "commits": 1258,
-      "releases": 97,
-      "version": {
-        "value": "0.2.112",
-        "source": "npm"
-      },
-      "languages": {
-        "TypeScript": 18514724,
-        "HTML": 601424,
-        "Shell": 32784,
-        "JavaScript": 8733
       }
     },
     {
@@ -342,10 +342,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.112",
-      "versions": 90,
+      "latest": "0.2.115",
+      "versions": 93,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-16T18:12:48.980Z"
+      "lastPublish": "2026-09-17T21:09:33.426Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -359,12 +359,12 @@
   "totals": {
     "ownRepos": 9,
     "forks": 4,
-    "commits": 2295,
-    "releases": 174,
+    "commits": 2369,
+    "releases": 178,
     "stars": 1,
-    "npmVersions": 119,
+    "npmVersions": 122,
     "languages": {
-      "TypeScript": 23343488,
+      "TypeScript": 23919359,
       "HTML": 839685,
       "Shell": 71549,
       "JavaScript": 61538,
