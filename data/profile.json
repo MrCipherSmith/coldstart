@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T09:19:43.252Z",
+  "generatedAt": "2026-09-21T10:00:12.799Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -8,10 +8,40 @@
     "avatarUrl": "https://avatars.githubusercontent.com/u/200531777?v=4",
     "url": "https://github.com/MrCipherSmith",
     "createdAt": "2025-02-23T22:31:06Z",
-    "publicRepos": 14,
+    "publicRepos": 16,
     "followers": 0
   },
   "repos": [
+    {
+      "name": "olimpyx",
+      "description": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-12T07:47:31Z",
+      "pushedAt": "2026-09-21T09:59:54Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/olimpyx",
+      "sizeKb": 9550,
+      "commits": 99,
+      "releases": 5,
+      "version": {
+        "value": "0.5.0",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 1223608,
+        "JavaScript": 524849,
+        "HTML": 108004,
+        "CSS": 77194,
+        "Shell": 3983,
+        "Python": 1291,
+        "Dockerfile": 1199
+      }
+    },
     {
       "name": "keryx",
       "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
@@ -22,21 +52,51 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-20T09:05:27Z",
+      "pushedAt": "2026-09-21T09:47:21Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 36941,
-      "commits": 1377,
-      "releases": 111,
+      "sizeKb": 38817,
+      "commits": 1412,
+      "releases": 119,
       "version": {
-        "value": "0.2.126",
+        "value": "0.2.134",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 20238423,
-        "HTML": 601424,
+        "TypeScript": 20405129,
+        "HTML": 602305,
         "Shell": 32784,
         "JavaScript": 8733
+      }
+    },
+    {
+      "name": "echolet",
+      "description": null,
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-07T06:59:09Z",
+      "pushedAt": "2026-09-20T17:13:50Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/echolet",
+      "sizeKb": 22980,
+      "commits": 88,
+      "releases": 2,
+      "version": {
+        "value": "0.1.1",
+        "source": "release"
+      },
+      "languages": {
+        "HTML": 12303805,
+        "TypeScript": 1803221,
+        "Go": 578855,
+        "Shell": 157412,
+        "CSS": 86359,
+        "JavaScript": 17542,
+        "Dockerfile": 5518
       }
     },
     {
@@ -342,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.126",
-      "versions": 104,
+      "latest": "0.2.134",
+      "versions": 111,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-19T19:41:10.924Z"
+      "lastPublish": "2026-09-21T09:55:17.078Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -357,21 +417,22 @@
     }
   ],
   "totals": {
-    "ownRepos": 9,
+    "ownRepos": 11,
     "forks": 4,
-    "commits": 2418,
-    "releases": 189,
+    "commits": 2640,
+    "releases": 204,
     "stars": 1,
-    "npmVersions": 133,
+    "npmVersions": 140,
     "languages": {
-      "TypeScript": 25067187,
-      "HTML": 839685,
-      "Shell": 71549,
-      "JavaScript": 61538,
-      "Dockerfile": 8169,
-      "CSS": 6351,
+      "TypeScript": 28260722,
+      "JavaScript": 603929,
+      "HTML": 13252375,
+      "CSS": 169904,
+      "Shell": 232944,
+      "Python": 12743,
+      "Dockerfile": 14886,
+      "Go": 578855,
       "Ruby": 1610,
-      "Python": 11452,
       "Makefile": 7707
     }
   }
