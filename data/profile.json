@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T10:00:12.799Z",
+  "generatedAt": "2026-09-22T09:20:48.817Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -13,6 +13,33 @@
   },
   "repos": [
     {
+      "name": "keryx",
+      "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
+      "language": "TypeScript",
+      "stars": 1,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-07-06T08:41:09Z",
+      "pushedAt": "2026-09-22T08:50:25Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/keryx",
+      "sizeKb": 40505,
+      "commits": 1451,
+      "releases": 129,
+      "version": {
+        "value": "0.2.144",
+        "source": "npm"
+      },
+      "languages": {
+        "TypeScript": 20563373,
+        "HTML": 602305,
+        "Shell": 32784,
+        "JavaScript": 8733
+      }
+    },
+    {
       "name": "olimpyx",
       "description": null,
       "language": "TypeScript",
@@ -22,51 +49,24 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-09-12T07:47:31Z",
-      "pushedAt": "2026-09-21T09:59:54Z",
+      "pushedAt": "2026-09-21T20:10:43Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/olimpyx",
-      "sizeKb": 9550,
-      "commits": 99,
-      "releases": 5,
+      "sizeKb": 9731,
+      "commits": 105,
+      "releases": 7,
       "version": {
-        "value": "0.5.0",
+        "value": "0.6.1",
         "source": "release"
       },
       "languages": {
-        "TypeScript": 1223608,
-        "JavaScript": 524849,
+        "TypeScript": 1236280,
+        "JavaScript": 567581,
         "HTML": 108004,
         "CSS": 77194,
         "Shell": 3983,
         "Python": 1291,
         "Dockerfile": 1199
-      }
-    },
-    {
-      "name": "keryx",
-      "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-21T09:47:21Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 38817,
-      "commits": 1412,
-      "releases": 119,
-      "version": {
-        "value": "0.2.134",
-        "source": "npm"
-      },
-      "languages": {
-        "TypeScript": 20405129,
-        "HTML": 602305,
-        "Shell": 32784,
-        "JavaScript": 8733
       }
     },
     {
@@ -154,10 +154,10 @@
         "typescript"
       ],
       "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-13T12:45:30Z",
+      "pushedAt": "2026-09-21T18:10:00Z",
       "homepage": "https://www.npmjs.com/package/@mrciphersmith/roomyx",
       "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 8244,
+      "sizeKb": 4370,
       "commits": 124,
       "releases": 29,
       "version": {
@@ -402,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.134",
-      "versions": 111,
+      "latest": "0.2.144",
+      "versions": 118,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-21T09:55:17.078Z"
+      "lastPublish": "2026-09-22T08:21:09.580Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,16 +419,16 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 2640,
-    "releases": 204,
-    "stars": 1,
-    "npmVersions": 140,
+    "commits": 2685,
+    "releases": 216,
+    "stars": 2,
+    "npmVersions": 147,
     "languages": {
-      "TypeScript": 28260722,
-      "JavaScript": 603929,
+      "TypeScript": 28431638,
       "HTML": 13252375,
-      "CSS": 169904,
       "Shell": 232944,
+      "JavaScript": 646661,
+      "CSS": 169904,
       "Python": 12743,
       "Dockerfile": 14886,
       "Go": 578855,
