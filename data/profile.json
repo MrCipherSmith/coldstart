@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:20:48.817Z",
+  "generatedAt": "2026-09-23T09:22:28.746Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -16,24 +16,24 @@
       "name": "keryx",
       "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
       "language": "TypeScript",
-      "stars": 1,
+      "stars": 2,
       "forks": 0,
       "isFork": false,
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-22T08:50:25Z",
+      "pushedAt": "2026-09-23T09:14:42Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 40505,
-      "commits": 1451,
-      "releases": 129,
+      "sizeKb": 41410,
+      "commits": 1497,
+      "releases": 139,
       "version": {
-        "value": "0.2.144",
+        "value": "0.2.155",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 20563373,
+        "TypeScript": 22588977,
         "HTML": 602305,
         "Shell": 32784,
         "JavaScript": 8733
@@ -402,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.144",
-      "versions": 118,
+      "latest": "0.2.155",
+      "versions": 126,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-22T08:21:09.580Z"
+      "lastPublish": "2026-09-23T05:03:10.233Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,12 +419,12 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 2685,
-    "releases": 216,
-    "stars": 2,
-    "npmVersions": 147,
+    "commits": 2731,
+    "releases": 226,
+    "stars": 3,
+    "npmVersions": 155,
     "languages": {
-      "TypeScript": 28431638,
+      "TypeScript": 30457242,
       "HTML": 13252375,
       "Shell": 232944,
       "JavaScript": 646661,
