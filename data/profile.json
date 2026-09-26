@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T09:39:08.286Z",
+  "generatedAt": "2026-09-26T09:23:41.788Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,21 +22,110 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-25T09:36:11Z",
+      "pushedAt": "2026-09-25T23:36:56Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 43737,
-      "commits": 1513,
-      "releases": 146,
+      "sizeKb": 51383,
+      "commits": 1569,
+      "releases": 155,
       "version": {
-        "value": "0.2.162",
+        "value": "0.3.6",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 23265171,
+        "TypeScript": 30265979,
         "HTML": 602305,
-        "Shell": 32784,
-        "JavaScript": 8733
+        "Shell": 32886,
+        "JavaScript": 9301
+      }
+    },
+    {
+      "name": "kesha-voice-kit",
+      "description": "Open-source voice toolkit. Speech-to-text (25 langs, ~19x faster than Whisper on Apple Silicon, ONNX fallback on CPU), text-to-speech (Kokoro + Vosk-TTS + ~180 macOS system voices, SSML), voice-activity detection, language detection (107 langs). Rust engine, OpenClaw skill.",
+      "language": "Rust",
+      "stars": 0,
+      "forks": 0,
+      "isFork": true,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-04-29T18:46:02Z",
+      "pushedAt": "2026-09-25T10:17:26Z",
+      "homepage": "https://drakulavich.github.io/kesha-voice-kit/",
+      "url": "https://github.com/MrCipherSmith/kesha-voice-kit",
+      "sizeKb": 2293,
+      "commits": 0,
+      "releases": 0,
+      "version": null,
+      "languages": {}
+    },
+    {
+      "name": "roomyx",
+      "description": "MCP server and terminal UI for startup-room: serves a room's append-only log as MCP tools and as a live TUI, with a registry so several rooms can run at once.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "bun",
+        "cli",
+        "mcp",
+        "model-context-protocol",
+        "multi-agent",
+        "tui",
+        "typescript"
+      ],
+      "createdAt": "2026-09-09T05:47:08Z",
+      "pushedAt": "2026-09-25T10:17:20Z",
+      "homepage": "https://www.npmjs.com/package/@mrciphersmith/roomyx",
+      "url": "https://github.com/MrCipherSmith/roomyx",
+      "sizeKb": 4375,
+      "commits": 126,
+      "releases": 29,
+      "version": {
+        "value": "0.12.2",
+        "source": "npm"
+      },
+      "languages": {
+        "TypeScript": 686561,
+        "HTML": 40394,
+        "JavaScript": 3626
+      }
+    },
+    {
+      "name": "goodai-base",
+      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "ai-agents",
+        "automation",
+        "claude-code",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "rules",
+        "skills"
+      ],
+      "createdAt": "2026-02-27T23:43:40Z",
+      "pushedAt": "2026-09-25T09:46:49Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/goodai-base",
+      "sizeKb": 1742,
+      "commits": 111,
+      "releases": 10,
+      "version": {
+        "value": "1.16.0",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 254320,
+        "HTML": 156441,
+        "JavaScript": 32323,
+        "Shell": 9344
       }
     },
     {
@@ -117,10 +206,10 @@
         "typescript"
       ],
       "createdAt": "2026-04-03T21:54:01Z",
-      "pushedAt": "2026-09-17T14:39:23Z",
+      "pushedAt": "2026-09-25T10:14:24Z",
       "homepage": "https://helyx.mrciphersmith.com",
       "url": "https://github.com/MrCipherSmith/helyx",
-      "sizeKb": 10058,
+      "sizeKb": 10001,
       "commits": 783,
       "releases": 39,
       "version": {
@@ -134,76 +223,6 @@
         "JavaScript": 3488,
         "Dockerfile": 3207,
         "CSS": 2942
-      }
-    },
-    {
-      "name": "roomyx",
-      "description": "MCP server and terminal UI for startup-room: serves a room's append-only log as MCP tools and as a live TUI, with a registry so several rooms can run at once.",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "bun",
-        "cli",
-        "mcp",
-        "model-context-protocol",
-        "multi-agent",
-        "tui",
-        "typescript"
-      ],
-      "createdAt": "2026-09-09T05:47:08Z",
-      "pushedAt": "2026-09-21T18:10:00Z",
-      "homepage": "https://www.npmjs.com/package/@mrciphersmith/roomyx",
-      "url": "https://github.com/MrCipherSmith/roomyx",
-      "sizeKb": 4370,
-      "commits": 124,
-      "releases": 29,
-      "version": {
-        "value": "0.12.2",
-        "source": "npm"
-      },
-      "languages": {
-        "TypeScript": 686561,
-        "HTML": 40394,
-        "JavaScript": 3626
-      }
-    },
-    {
-      "name": "goodai-base",
-      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "ai-agents",
-        "automation",
-        "claude-code",
-        "cursor",
-        "developer-tools",
-        "llm",
-        "rules",
-        "skills"
-      ],
-      "createdAt": "2026-02-27T23:43:40Z",
-      "pushedAt": "2026-09-25T09:28:13Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/goodai-base",
-      "sizeKb": 1703,
-      "commits": 107,
-      "releases": 10,
-      "version": {
-        "value": "1.16.0",
-        "source": "release"
-      },
-      "languages": {
-        "TypeScript": 254320,
-        "HTML": 156441,
-        "JavaScript": 32323,
-        "Shell": 9344
       }
     },
     {
@@ -241,25 +260,6 @@
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/CL4R1T4S",
       "sizeKb": 805,
-      "commits": 0,
-      "releases": 0,
-      "version": null,
-      "languages": {}
-    },
-    {
-      "name": "kesha-voice-kit",
-      "description": "Open-source voice toolkit. Speech-to-text (25 langs, ~19x faster than Whisper on Apple Silicon, ONNX fallback on CPU), text-to-speech (Kokoro + Vosk-TTS + ~180 macOS system voices, SSML), voice-activity detection, language detection (107 langs). Rust engine, OpenClaw skill.",
-      "language": "Rust",
-      "stars": 0,
-      "forks": 0,
-      "isFork": true,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-04-29T18:46:02Z",
-      "pushedAt": "2026-04-30T08:13:45Z",
-      "homepage": "https://drakulavich.github.io/kesha-voice-kit/",
-      "url": "https://github.com/MrCipherSmith/kesha-voice-kit",
-      "sizeKb": 2328,
       "commits": 0,
       "releases": 0,
       "version": null,
@@ -402,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.2.162",
-      "versions": 132,
+      "latest": "0.3.6",
+      "versions": 140,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-25T08:39:05.180Z"
+      "lastPublish": "2026-09-25T23:39:54.777Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,15 +419,15 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 2747,
-    "releases": 233,
+    "commits": 2809,
+    "releases": 242,
     "stars": 3,
-    "npmVersions": 161,
+    "npmVersions": 169,
     "languages": {
-      "TypeScript": 31133436,
+      "TypeScript": 38134244,
       "HTML": 13252375,
-      "Shell": 232944,
-      "JavaScript": 646661,
+      "Shell": 233046,
+      "JavaScript": 647229,
       "CSS": 169904,
       "Python": 12743,
       "Dockerfile": 14886,
