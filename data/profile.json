@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T10:03:10.082Z",
+  "generatedAt": "2026-09-28T10:59:41.675Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -13,36 +13,6 @@
   },
   "repos": [
     {
-      "name": "olimpyx",
-      "description": null,
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-09-12T07:47:31Z",
-      "pushedAt": "2026-09-27T09:49:05Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/olimpyx",
-      "sizeKb": 9731,
-      "commits": 113,
-      "releases": 7,
-      "version": {
-        "value": "0.6.1",
-        "source": "release"
-      },
-      "languages": {
-        "TypeScript": 1236280,
-        "JavaScript": 567581,
-        "HTML": 108004,
-        "CSS": 77194,
-        "Shell": 3983,
-        "Python": 1291,
-        "Dockerfile": 1199
-      }
-    },
-    {
       "name": "keryx",
       "description": "CLI-first metaproject toolkit — a versioned .metaproject/ workspace giving AI agents and developers one shared, structured project context.",
       "language": "TypeScript",
@@ -52,21 +22,118 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-27T09:39:09Z",
+      "pushedAt": "2026-09-28T10:34:35Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 52429,
-      "commits": 1584,
-      "releases": 163,
+      "sizeKb": 54237,
+      "commits": 1593,
+      "releases": 168,
       "version": {
-        "value": "0.3.14",
+        "value": "0.3.19",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 30546315,
+        "TypeScript": 30989907,
         "HTML": 660129,
         "Shell": 32886,
         "JavaScript": 9301
+      }
+    },
+    {
+      "name": "helyx",
+      "description": "Helyx — Telegram-first multi-project hub for Claude Code. Multi-session MCP bot with dual-layer memory, voice transcription, web dashboard, and real-time CLI monitoring.",
+      "language": "TypeScript",
+      "stars": 1,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "ai-agent",
+        "bun",
+        "claude",
+        "claude-code",
+        "mcp",
+        "telegram-bot",
+        "typescript"
+      ],
+      "createdAt": "2026-04-03T21:54:01Z",
+      "pushedAt": "2026-09-28T07:39:07Z",
+      "homepage": "https://helyx.mrciphersmith.com",
+      "url": "https://github.com/MrCipherSmith/helyx",
+      "sizeKb": 9973,
+      "commits": 789,
+      "releases": 40,
+      "version": {
+        "value": "1.59.1",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 3652459,
+        "HTML": 41062,
+        "Shell": 26598,
+        "JavaScript": 3488,
+        "Dockerfile": 3207,
+        "CSS": 2942
+      }
+    },
+    {
+      "name": "olimpyx",
+      "description": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-12T07:47:31Z",
+      "pushedAt": "2026-09-27T18:28:54Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/olimpyx",
+      "sizeKb": 9856,
+      "commits": 119,
+      "releases": 7,
+      "version": {
+        "value": "0.6.1",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 1261509,
+        "JavaScript": 572076,
+        "HTML": 108004,
+        "CSS": 77194,
+        "Shell": 3983,
+        "Python": 1291,
+        "Dockerfile": 1199
+      }
+    },
+    {
+      "name": "echolet",
+      "description": null,
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [],
+      "createdAt": "2026-09-07T06:59:09Z",
+      "pushedAt": "2026-09-27T11:39:28Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/echolet",
+      "sizeKb": 22656,
+      "commits": 96,
+      "releases": 2,
+      "version": {
+        "value": "0.1.1",
+        "source": "release"
+      },
+      "languages": {
+        "HTML": 12303805,
+        "TypeScript": 1819292,
+        "Go": 601645,
+        "Shell": 157463,
+        "CSS": 86359,
+        "JavaScript": 17542,
+        "Dockerfile": 5518
       }
     },
     {
@@ -156,73 +223,6 @@
         "HTML": 156441,
         "JavaScript": 32323,
         "Shell": 9344
-      }
-    },
-    {
-      "name": "echolet",
-      "description": null,
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [],
-      "createdAt": "2026-09-07T06:59:09Z",
-      "pushedAt": "2026-09-27T09:42:22Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/echolet",
-      "sizeKb": 23024,
-      "commits": 88,
-      "releases": 2,
-      "version": {
-        "value": "0.1.1",
-        "source": "release"
-      },
-      "languages": {
-        "HTML": 12303805,
-        "TypeScript": 1803221,
-        "Go": 578855,
-        "Shell": 157412,
-        "CSS": 86359,
-        "JavaScript": 17542,
-        "Dockerfile": 5518
-      }
-    },
-    {
-      "name": "helyx",
-      "description": "Helyx — Telegram-first multi-project hub for Claude Code. Multi-session MCP bot with dual-layer memory, voice transcription, web dashboard, and real-time CLI monitoring.",
-      "language": "TypeScript",
-      "stars": 1,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "ai-agent",
-        "bun",
-        "claude",
-        "claude-code",
-        "mcp",
-        "telegram-bot",
-        "typescript"
-      ],
-      "createdAt": "2026-04-03T21:54:01Z",
-      "pushedAt": "2026-09-25T10:14:24Z",
-      "homepage": "https://helyx.mrciphersmith.com",
-      "url": "https://github.com/MrCipherSmith/helyx",
-      "sizeKb": 10001,
-      "commits": 783,
-      "releases": 39,
-      "version": {
-        "value": "1.59.0",
-        "source": "release"
-      },
-      "languages": {
-        "TypeScript": 3642160,
-        "HTML": 41062,
-        "Shell": 23672,
-        "JavaScript": 3488,
-        "Dockerfile": 3207,
-        "CSS": 2942
       }
     },
     {
@@ -402,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.3.14",
-      "versions": 148,
+      "latest": "0.3.19",
+      "versions": 153,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-27T00:51:37.570Z"
+      "lastPublish": "2026-09-28T10:38:19.249Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,19 +419,19 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 2832,
-    "releases": 250,
+    "commits": 2861,
+    "releases": 256,
     "stars": 3,
-    "npmVersions": 177,
+    "npmVersions": 182,
     "languages": {
-      "TypeScript": 38414580,
-      "JavaScript": 647229,
+      "TypeScript": 38909771,
       "HTML": 13310199,
-      "CSS": 169904,
-      "Shell": 233046,
-      "Python": 12743,
+      "Shell": 236023,
+      "JavaScript": 651724,
       "Dockerfile": 14886,
-      "Go": 578855,
+      "CSS": 169904,
+      "Python": 12743,
+      "Go": 601645,
       "Ruby": 1610,
       "Makefile": 7707
     }
