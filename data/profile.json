@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T10:44:32.789Z",
+  "generatedAt": "2026-09-30T10:32:32.984Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,18 +22,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-09-29T10:43:17Z",
+      "pushedAt": "2026-09-30T09:56:18Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 57200,
-      "commits": 1613,
-      "releases": 184,
+      "sizeKb": 54749,
+      "commits": 1619,
+      "releases": 189,
       "version": {
-        "value": "0.3.34",
+        "value": "0.3.40",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 31634895,
+        "TypeScript": 32160181,
         "HTML": 660129,
         "Shell": 32886,
         "JavaScript": 9301
@@ -57,20 +57,20 @@
         "typescript"
       ],
       "createdAt": "2026-04-03T21:54:01Z",
-      "pushedAt": "2026-09-28T07:39:07Z",
+      "pushedAt": "2026-09-29T20:34:15Z",
       "homepage": "https://helyx.mrciphersmith.com",
       "url": "https://github.com/MrCipherSmith/helyx",
-      "sizeKb": 9973,
-      "commits": 789,
+      "sizeKb": 9991,
+      "commits": 793,
       "releases": 40,
       "version": {
         "value": "1.59.1",
         "source": "release"
       },
       "languages": {
-        "TypeScript": 3652459,
+        "TypeScript": 3663114,
         "HTML": 41062,
-        "Shell": 26598,
+        "Shell": 27345,
         "JavaScript": 3488,
         "Dockerfile": 3207,
         "CSS": 2942
@@ -402,10 +402,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.3.34",
-      "versions": 167,
+      "latest": "0.3.40",
+      "versions": 173,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-09-29T10:34:48.576Z"
+      "lastPublish": "2026-09-30T08:23:57.556Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,14 +419,14 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 2881,
-    "releases": 272,
+    "commits": 2891,
+    "releases": 277,
     "stars": 3,
-    "npmVersions": 196,
+    "npmVersions": 202,
     "languages": {
-      "TypeScript": 39554759,
+      "TypeScript": 40090700,
       "HTML": 13310199,
-      "Shell": 236023,
+      "Shell": 236770,
       "JavaScript": 651724,
       "Dockerfile": 14886,
       "CSS": 169904,
