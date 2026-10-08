@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T11:07:52.973Z",
+  "generatedAt": "2026-10-08T11:25:47.371Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,21 +22,22 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-10-07T10:46:48Z",
+      "pushedAt": "2026-10-08T11:21:09Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 55580,
-      "commits": 2147,
-      "releases": 219,
+      "sizeKb": 59172,
+      "commits": 2167,
+      "releases": 221,
       "version": {
-        "value": "0.3.77",
+        "value": "0.3.78",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 37713549,
+        "TypeScript": 37809711,
         "HTML": 671341,
         "Shell": 32886,
-        "JavaScript": 9301
+        "JavaScript": 9301,
+        "Python": 6426
       }
     },
     {
@@ -402,10 +403,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.3.77",
-      "versions": 200,
+      "latest": "0.3.78",
+      "versions": 201,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-10-05T15:45:28.516Z"
+      "lastPublish": "2026-10-08T07:31:59.357Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -419,18 +420,18 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 3425,
-    "releases": 307,
+    "commits": 3445,
+    "releases": 309,
     "stars": 3,
-    "npmVersions": 229,
+    "npmVersions": 230,
     "languages": {
-      "TypeScript": 45668807,
+      "TypeScript": 45764969,
       "HTML": 13321411,
       "Shell": 236770,
       "JavaScript": 651724,
+      "Python": 19169,
       "Dockerfile": 14886,
       "CSS": 169904,
-      "Python": 12743,
       "Go": 601645,
       "Ruby": 1610,
       "Makefile": 7707
