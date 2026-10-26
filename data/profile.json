@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T09:12:10.633Z",
+  "generatedAt": "2026-10-26T10:13:33.644Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -9,7 +9,7 @@
     "url": "https://github.com/MrCipherSmith",
     "createdAt": "2025-02-23T22:31:06Z",
     "publicRepos": 16,
-    "followers": 0
+    "followers": 1
   },
   "repos": [
     {
@@ -22,18 +22,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-10-25T08:13:29Z",
+      "pushedAt": "2026-10-26T07:59:57Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 82410,
-      "commits": 3055,
-      "releases": 260,
+      "sizeKb": 82713,
+      "commits": 3071,
+      "releases": 262,
       "version": {
-        "value": "0.3.131",
+        "value": "0.3.133",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 44274987,
+        "TypeScript": 44499467,
         "HTML": 753168,
         "Shell": 32886,
         "JavaScript": 9301,
@@ -403,10 +403,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.3.131",
-      "versions": 239,
+      "latest": "0.3.133",
+      "versions": 241,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-10-24T21:14:28.646Z"
+      "lastPublish": "2026-10-26T06:11:39.490Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -420,12 +420,12 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 4337,
-    "releases": 348,
+    "commits": 4353,
+    "releases": 350,
     "stars": 6,
-    "npmVersions": 268,
+    "npmVersions": 270,
     "languages": {
-      "TypeScript": 52237699,
+      "TypeScript": 52462179,
       "HTML": 13403238,
       "Shell": 237068,
       "JavaScript": 651724,
