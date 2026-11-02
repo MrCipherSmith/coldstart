@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T11:20:03.105Z",
+  "generatedAt": "2026-11-02T12:32:51.692Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,18 +22,18 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-01T09:20:54Z",
+      "pushedAt": "2026-11-02T12:12:48Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 87156,
-      "commits": 3173,
-      "releases": 267,
+      "sizeKb": 90412,
+      "commits": 3180,
+      "releases": 268,
       "version": {
-        "value": "0.4.2",
+        "value": "0.4.3",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 48512960,
+        "TypeScript": 48522935,
         "HTML": 753505,
         "Shell": 145428,
         "JavaScript": 51233,
@@ -404,10 +404,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.4.2",
-      "versions": 245,
+      "latest": "0.4.3",
+      "versions": 246,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-11-01T09:40:58.432Z"
+      "lastPublish": "2026-11-01T15:40:14.884Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -421,12 +421,12 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 4455,
-    "releases": 355,
+    "commits": 4462,
+    "releases": 356,
     "stars": 6,
-    "npmVersions": 274,
+    "npmVersions": 275,
     "languages": {
-      "TypeScript": 56475672,
+      "TypeScript": 56485647,
       "HTML": 13403575,
       "Shell": 349610,
       "JavaScript": 693656,
