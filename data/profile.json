@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T11:59:56.688Z",
+  "generatedAt": "2026-11-04T12:14:44.062Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,24 +22,60 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-03T10:34:22Z",
+      "pushedAt": "2026-11-04T12:09:29Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 93180,
-      "commits": 3469,
+      "sizeKb": 96468,
+      "commits": 3488,
       "releases": 273,
       "version": {
         "value": "0.4.8",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 51111834,
+        "TypeScript": 51115809,
         "HTML": 753505,
         "Shell": 165791,
         "Python": 108036,
         "JavaScript": 55435,
         "CSS": 51867,
         "Dockerfile": 1743
+      }
+    },
+    {
+      "name": "goodai-base",
+      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "isFork": false,
+      "archived": false,
+      "topics": [
+        "ai-agents",
+        "automation",
+        "claude-code",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "rules",
+        "skills"
+      ],
+      "createdAt": "2026-02-27T23:43:40Z",
+      "pushedAt": "2026-11-03T17:58:41Z",
+      "homepage": null,
+      "url": "https://github.com/MrCipherSmith/goodai-base",
+      "sizeKb": 1865,
+      "commits": 117,
+      "releases": 10,
+      "version": {
+        "value": "1.16.0",
+        "source": "release"
+      },
+      "languages": {
+        "TypeScript": 254320,
+        "HTML": 156441,
+        "JavaScript": 32323,
+        "Shell": 9344
       }
     },
     {
@@ -190,42 +226,6 @@
         "TypeScript": 686561,
         "HTML": 40394,
         "JavaScript": 3626
-      }
-    },
-    {
-      "name": "goodai-base",
-      "description": "Shared knowledge base for AI coding agents — skills, rules, and workflows for Claude Code, Cursor, Codex, and more",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "isFork": false,
-      "archived": false,
-      "topics": [
-        "ai-agents",
-        "automation",
-        "claude-code",
-        "cursor",
-        "developer-tools",
-        "llm",
-        "rules",
-        "skills"
-      ],
-      "createdAt": "2026-02-27T23:43:40Z",
-      "pushedAt": "2026-09-25T09:46:49Z",
-      "homepage": null,
-      "url": "https://github.com/MrCipherSmith/goodai-base",
-      "sizeKb": 1742,
-      "commits": 111,
-      "releases": 10,
-      "version": {
-        "value": "1.16.0",
-        "source": "release"
-      },
-      "languages": {
-        "TypeScript": 254320,
-        "HTML": 156441,
-        "JavaScript": 32323,
-        "Shell": 9344
       }
     },
     {
@@ -422,12 +422,12 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 4751,
+    "commits": 4776,
     "releases": 361,
     "stars": 6,
     "npmVersions": 280,
     "languages": {
-      "TypeScript": 59074546,
+      "TypeScript": 59078521,
       "HTML": 13403575,
       "Shell": 369973,
       "Python": 120779,
