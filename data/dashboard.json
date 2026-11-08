@@ -1,9 +1,9 @@
 {
-  "shotAt": "2026-11-07T11:10:00.283Z",
+  "shotAt": "2026-11-08T11:22:11.070Z",
   "source": "keryx dashboard build",
   "health": 92,
-  "findings": 920,
-  "graphFiles": 3934,
+  "findings": 943,
+  "graphFiles": 3993,
   "wikiPages": 40,
   "memoryEntries": 39,
   "modules": 9

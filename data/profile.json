@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T11:08:01.866Z",
+  "generatedAt": "2026-11-08T11:20:43.270Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,22 +22,22 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-07T10:36:10Z",
+      "pushedAt": "2026-11-08T06:17:09Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 92276,
-      "commits": 3579,
-      "releases": 279,
+      "sizeKb": 98329,
+      "commits": 3635,
+      "releases": 287,
       "version": {
-        "value": "0.4.14",
+        "value": "0.4.22",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 52705489,
+        "TypeScript": 53298887,
         "HTML": 753505,
         "Shell": 165791,
         "Python": 109364,
-        "CSS": 61557,
+        "CSS": 66901,
         "JavaScript": 56364,
         "Dockerfile": 1743
       }
@@ -405,10 +405,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.4.14",
-      "versions": 257,
+      "latest": "0.4.22",
+      "versions": 265,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-11-07T11:05:42.620Z"
+      "lastPublish": "2026-11-08T06:49:42.519Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -422,16 +422,16 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 4867,
-    "releases": 367,
+    "commits": 4923,
+    "releases": 375,
     "stars": 6,
-    "npmVersions": 286,
+    "npmVersions": 294,
     "languages": {
-      "TypeScript": 60668201,
+      "TypeScript": 61261599,
       "HTML": 13403575,
       "Shell": 369973,
       "Python": 122107,
-      "CSS": 231461,
+      "CSS": 236805,
       "JavaScript": 698787,
       "Dockerfile": 16629,
       "Go": 601645,
