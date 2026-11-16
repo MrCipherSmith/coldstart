@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T12:00:20.293Z",
+  "generatedAt": "2026-11-16T12:51:19.288Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,22 +22,22 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-15T09:48:14Z",
+      "pushedAt": "2026-11-16T12:46:59Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 99837,
-      "commits": 3714,
-      "releases": 294,
+      "sizeKb": 100651,
+      "commits": 3777,
+      "releases": 296,
       "version": {
-        "value": "0.4.29",
+        "value": "0.4.31",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 53495219,
+        "TypeScript": 53765298,
         "HTML": 757750,
         "Shell": 170204,
-        "Python": 125265,
-        "CSS": 66901,
+        "Python": 125559,
+        "CSS": 68184,
         "JavaScript": 56364,
         "Dockerfile": 1743
       }
@@ -405,10 +405,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.4.29",
-      "versions": 271,
+      "latest": "0.4.31",
+      "versions": 273,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-11-15T08:15:28.824Z"
+      "lastPublish": "2026-11-16T08:54:47.291Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -422,16 +422,16 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 5002,
-    "releases": 382,
+    "commits": 5065,
+    "releases": 384,
     "stars": 6,
-    "npmVersions": 300,
+    "npmVersions": 302,
     "languages": {
-      "TypeScript": 61457931,
+      "TypeScript": 61728010,
       "HTML": 13407820,
       "Shell": 374386,
-      "Python": 138008,
-      "CSS": 236805,
+      "Python": 138302,
+      "CSS": 238088,
       "JavaScript": 698787,
       "Dockerfile": 16629,
       "Go": 601645,
