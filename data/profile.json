@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T13:09:29.172Z",
+  "generatedAt": "2026-11-19T13:22:35.662Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,23 +22,24 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-18T13:06:53Z",
+      "pushedAt": "2026-11-19T12:58:20Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 104066,
-      "commits": 3902,
-      "releases": 301,
+      "sizeKb": 100451,
+      "commits": 4003,
+      "releases": 307,
       "version": {
-        "value": "0.4.36",
+        "value": "0.4.38",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 54197834,
-        "HTML": 757756,
-        "Shell": 170204,
+        "TypeScript": 55835827,
+        "HTML": 758163,
+        "Rust": 320663,
+        "CSS": 175295,
+        "Shell": 174689,
         "Python": 125559,
-        "CSS": 68184,
-        "JavaScript": 56364,
+        "JavaScript": 56383,
         "Dockerfile": 1743
       }
     },
@@ -405,10 +406,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.4.36",
-      "versions": 278,
+      "latest": "0.4.38",
+      "versions": 280,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-11-18T09:02:31.666Z"
+      "lastPublish": "2026-11-19T00:28:19.703Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -422,17 +423,18 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 5190,
-    "releases": 389,
+    "commits": 5291,
+    "releases": 395,
     "stars": 6,
-    "npmVersions": 307,
+    "npmVersions": 309,
     "languages": {
-      "TypeScript": 62160546,
-      "HTML": 13407826,
-      "Shell": 374386,
+      "TypeScript": 63798539,
+      "HTML": 13408233,
+      "Rust": 320663,
+      "CSS": 345199,
+      "Shell": 378871,
       "Python": 138302,
-      "CSS": 238088,
-      "JavaScript": 698787,
+      "JavaScript": 698806,
       "Dockerfile": 16629,
       "Go": 601645,
       "Ruby": 1610,
