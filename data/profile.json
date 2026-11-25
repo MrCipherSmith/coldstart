@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T14:56:36.702Z",
+  "generatedAt": "2026-11-25T14:30:42.831Z",
   "source": "github.com REST v3 + registry.npmjs.org",
   "user": {
     "login": "MrCipherSmith",
@@ -22,21 +22,21 @@
       "archived": false,
       "topics": [],
       "createdAt": "2026-07-06T08:41:09Z",
-      "pushedAt": "2026-11-24T14:39:27Z",
+      "pushedAt": "2026-11-25T12:09:37Z",
       "homepage": null,
       "url": "https://github.com/MrCipherSmith/keryx",
-      "sizeKb": 111380,
-      "commits": 4414,
-      "releases": 337,
+      "sizeKb": 110291,
+      "commits": 4505,
+      "releases": 343,
       "version": {
-        "value": "0.4.54",
+        "value": "0.4.57",
         "source": "npm"
       },
       "languages": {
-        "TypeScript": 59577095,
+        "TypeScript": 60099970,
         "HTML": 758163,
-        "Rust": 672704,
-        "CSS": 252223,
+        "Rust": 677728,
+        "CSS": 251152,
         "Shell": 174689,
         "Python": 127112,
         "JavaScript": 67815,
@@ -406,10 +406,10 @@
     {
       "name": "@mrciphersmith/keryx",
       "description": "Version-controlled project context for AI coding agents: code graph, architecture wiki, project memory, relevant tests, quality signals, and task flows.",
-      "latest": "0.4.54",
-      "versions": 296,
+      "latest": "0.4.57",
+      "versions": 299,
       "firstPublish": "2026-08-04T17:27:25.349Z",
-      "lastPublish": "2026-11-24T12:32:46.699Z"
+      "lastPublish": "2026-11-25T11:35:49.416Z"
     },
     {
       "name": "@mrciphersmith/roomyx",
@@ -423,15 +423,15 @@
   "totals": {
     "ownRepos": 11,
     "forks": 4,
-    "commits": 5702,
-    "releases": 425,
+    "commits": 5793,
+    "releases": 431,
     "stars": 6,
-    "npmVersions": 325,
+    "npmVersions": 328,
     "languages": {
-      "TypeScript": 67539807,
+      "TypeScript": 68062682,
       "HTML": 13408233,
-      "Rust": 672704,
-      "CSS": 422127,
+      "Rust": 677728,
+      "CSS": 421056,
       "Shell": 378871,
       "Python": 139855,
       "JavaScript": 710238,
